@@ -23,21 +23,30 @@ const DATA = [
 
 
 class AllRecords extends React.Component {
-  state = {
-    loading: false,
-    data: [],
-    page: 1,
-    seed: 1,
-    error: null,
-    query: '',
-    fullData: [],
-    posts: []
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      loading: false,
+      data: [],
+      page: 1,
+      seed: 1,
+      error: null,
+      query: '',
+      sample: 'the sample',
+      fullData: [],
+      posts: []
+    }
+
+    
   }
 
+  
   getPosts = async () => {
     const result = await API.graphql (graphqlOperation(listRecords))
     console.log(' 32- result = ', result ); 
-    this.setState ({ psosts: result.data.listRecords.items})
+    this.setState ({ posts: result.data.listRecords.items})
 
 };
 
@@ -48,13 +57,14 @@ class AllRecords extends React.Component {
 
   render(props) {
     // const { navigate } = this.props.props.navigation;
+    console.log('54- this.state  = ', this.state ); 
+    // console.log('43- posts = ' this.state );
 
     const Item = ({ item, onPress, style }) => (
       <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.title}>{item.id}</Text>
       </TouchableOpacity>
     );
-
 
     // const [selectedId, setSelectedId] = useState(null);
     const handleSelect = () =>{
@@ -65,18 +75,19 @@ class AllRecords extends React.Component {
       // const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
 
       return (
-        <Item
-          item={item}
-          onPress={() => handleSelect() }
-        />
+              <Item
+                    item={item}
+                    onPress={() => handleSelect() }
+                />
+        
       );
     };
   
     return (
       <SafeAreaView style={styles.container}>
         <FlatList
-          // data={this.props.posts}
-          data={DATA}
+          data={this.state.posts}
+          // data={DATA}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           // extraData={selectedId}
