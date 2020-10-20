@@ -3,7 +3,6 @@ import  { useState } from "react";
 import { Button } from 'react-native-elements';
 import { Avatar, Badge, Icon, withBadge } from 'react-native-elements'
 
-
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 import {
   View, Text,
@@ -31,10 +30,9 @@ const list = [
 ]
 
 
-
 const MainView = (props) => {
   // console.log('23- inside MainView ListItem=', ListItem.Content);
-  console.log('props =', props); 
+  // console.log('props =', props); 
   const { navigation } = props;
 
   const [isSelectedE, setSelectionE] = useState(false);
