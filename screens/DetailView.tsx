@@ -28,7 +28,6 @@ import Communications from 'react-native-communications';
       console.log(' 17 - executiveFirstName = ', executiveFirstName); 
       console.log(' 18 - Full Item  = ', props.route.params.item); 
 
-
       
         const handleResult = async (result) => {
             // if (result.ok && result.data) {
