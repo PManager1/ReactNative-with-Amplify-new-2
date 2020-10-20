@@ -17,6 +17,7 @@ import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
 import Communications from 'react-native-communications';
 
+import SubmitButton from '../forms/SubmitButton'
 
 // const LoginScreen = ({ navigation }) => {s
     const DetailView = (props) => {   
@@ -255,6 +256,8 @@ import Communications from 'react-native-communications';
   </CardSection>
 
 </Card>
+{/* onPress={} */}
+<SubmitButton title="Submit"  />
 
             </ScrollView>
             </SafeAreaView>
