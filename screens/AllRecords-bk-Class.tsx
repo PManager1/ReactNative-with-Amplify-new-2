@@ -63,13 +63,12 @@ class AllRecords extends React.Component {
   }
 
   render(props) {
-    console.log('64-props =', this.props.navigation.navigate); 
     // const { navigate } = this.props.props.navigation;
-    console.log('68- this.state  = ', this.state ); 
+    console.log('54- this.state  = ', this.state ); 
     // console.log('61- navigate  = ', navigate ); 
     // console.log('43- posts = ' this.state );
 
-    
+    console.log('65-props =', props); 
     // const { navigation } = props;
 
     const Item = ({ item, onPress, style }) => (
@@ -83,7 +82,7 @@ class AllRecords extends React.Component {
     // const [selectedId, setSelectedId] = useState(null);
     const handleSelect = (id) => {
       console.log('73--handle slected clicked  - id=', id); 
-      this.props.navigation.navigate('DetailView');
+      this.navigation.navigate('DetailView')
     }
 
     const renderItem = ({ item }) => {
