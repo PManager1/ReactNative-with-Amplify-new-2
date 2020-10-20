@@ -19,7 +19,7 @@ import MidPriority from '../screens/MidPriority';
 // import RecordsMainView from '../screens/RecordsMainView';
 import LeftAllRecords from '../screens/LeftAllRecords';
 
-// import AllRecords from '../screens/AllRecords';
+import AllRecords from '../screens/AllRecords';
 
 // import LoginScreen from '../screens/LoginScreen';
 // import MultiSelector from '../screens/Components/MultiSelector';
@@ -75,7 +75,7 @@ function TabOneNavigator() {
       
       <TabOneStack.Screen name="HighPriority" component={HighPriority} />
       <TabOneStack.Screen name="MidPriority" component={MidPriority} />
-      {/* <TabOneStack.Screen name="AllRecords" component={AllRecords} /> */}
+      <TabOneStack.Screen name="AllRecords" component={AllRecords} />
       <TabOneStack.Screen name="LeftAllRecords" component={LeftAllRecords} />
       
     </TabOneStack.Navigator>
