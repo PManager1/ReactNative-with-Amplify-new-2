@@ -9,6 +9,29 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
+
+import MainView from '../screens/MainView';
+
+import HighPriority from '../screens/HighPriority';
+import LowPriority from '../screens/LowPriority';
+import MidPriority from '../screens/MidPriority';
+import DetailView from '../screens/DetailView';
+
+// import CalendarEvent from '../screens/CalendarEvent';
+
+import RecordsMainView from '../screens/RecordsMainView';
+
+// import AllRecords from '../screens/AllRecords';
+
+
+import LoginScreen from '../screens/LoginScreen';
+
+import MultiSelector from '../screens/Components/MultiSelector';
+
+import DateTimePicker from '../screens/DateTimePicker';
+
+
+
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
