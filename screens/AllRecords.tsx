@@ -3,8 +3,9 @@ import { FlatList, View, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpa
 import { listRecords } from '../src/graphql/queries'
 import { API, graphqlOperation } from 'aws-amplify'
 import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../graphql/subscriptions'
-
 import { useNavigation } from '@react-navigation/native';
+
+
 
 class AllRecords extends React.Component {
   state = {
@@ -21,7 +22,7 @@ class AllRecords extends React.Component {
   getPosts = async () => {
     const result = await API.graphql (graphqlOperation(listRecords))
     console.log(' 32- result = ', result ); 
-    // this.setState ({ posts: result.data.listRecords.items})
+    this.setState ({ psosts: result.data.listRecords.items})
 };
 
   componentDidMount() {
@@ -39,4 +40,19 @@ class AllRecords extends React.Component {
 }
 
 export default AllRecords
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: StatusBar.currentHeight || 0,
+  },
+  item: {
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+  },
+  title: {
+    fontSize: 32,
+  },
+});
 
