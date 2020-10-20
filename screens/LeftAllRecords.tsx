@@ -4,7 +4,7 @@ import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity }
 const DATA = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
+    title: "First Item-1",
   },
   {
     id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+    backgroundColor: '#6e3b6e'
   },
 });
 

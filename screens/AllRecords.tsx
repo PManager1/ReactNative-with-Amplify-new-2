@@ -1,14 +1,10 @@
 import React, { useState } from "react";
-import { FlatList, View, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { listRecords } from '../src/graphql/queries'
-import { API, graphqlOperation } from 'aws-amplify'
-import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../graphql/subscriptions'
-import { useNavigation } from '@react-navigation/native';
+import { FlatList, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 const DATA = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
+    title: "First Item-1",
   },
   {
     id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
@@ -20,86 +16,38 @@ const DATA = [
   },
 ];
 
+const Item = ({ item, onPress, style }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+    <Text style={styles.title}>{item.title}</Text>
+  </TouchableOpacity>
+);
 
+const AllRecords = () => {
+  const [selectedId, setSelectedId] = useState(null);
 
-class AllRecords extends React.Component {
+  const renderItem = ({ item }) => {
+    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      loading: false,
-      data: [],
-      page: 1,
-      seed: 1,
-      error: null,
-      query: '',
-      sample: 'the sample',
-      fullData: [],
-      posts: []
-    }
-
-    
-  }
-
-  
-  getPosts = async () => {
-    const result = await API.graphql (graphqlOperation(listRecords))
-    console.log(' 32- result = ', result ); 
-    this.setState ({ posts: result.data.listRecords.items})
-
-};
-
-  componentDidMount() {
-    this.getPosts()
-    // this.makeRemoteRequest()
-  }
-
-  render(props) {
-    // const { navigate } = this.props.props.navigation;
-    console.log('54- this.state  = ', this.state ); 
-    // console.log('43- posts = ' this.state );
-
-    const Item = ({ item, onPress, style }) => (
-      <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-        <Text style={styles.title}>{item.companyName}</Text>
-        <Text style={styles.exname}>{item.executiveFirstName}</Text>
-        
-      </TouchableOpacity>
-    );
-
-    // const [selectedId, setSelectedId] = useState(null);
-    const handleSelect = () =>{
-      console.log('hanlde slected clcieked'); 
-    }
-
-    const renderItem = ({ item }) => {
-      // const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
-
-      return (
-              <Item
-                    item={item}
-                    onPress={() => handleSelect() }
-                />
-        
-      );
-    };
-  
     return (
-      <SafeAreaView style={styles.container}>
-        <FlatList
-          data={this.state.posts}
-          // data={DATA}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          // extraData={selectedId}
-        />
-      </SafeAreaView>
+      <Item
+        item={item}
+        onPress={() => setSelectedId(item.id)}
+        style={{ backgroundColor }}
+      />
     );
-  }
-}
+  };
 
-export default AllRecords
+  return (
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+        extraData={selectedId}
+      />
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -114,8 +62,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
   },
-  exname: {
-    fontSize: 16,
-  },
 });
+
+export default AllRecords;
 

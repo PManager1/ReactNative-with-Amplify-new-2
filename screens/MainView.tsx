@@ -20,7 +20,7 @@ import { Card, CardSection, Input } from '../components/common';
 
 const MainView = (props) => {
   // console.log('23- inside MainView ListItem=', ListItem.Content);
-  console.log('props =', props); 
+  console.log('MainView - props =', props); 
   const { navigation } = props;
 
   // const [isSelectedE, setSelectionE] = useState(false);

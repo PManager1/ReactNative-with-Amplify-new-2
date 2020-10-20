@@ -14,11 +14,10 @@ import MainView from '../screens/MainView';
 import HighPriority from '../screens/HighPriority';
 import LowPriority from '../screens/LowPriority';
 import MidPriority from '../screens/MidPriority';
-// import DetailView from '../screens/DetailView';
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
 import LeftAllRecords from '../screens/LeftAllRecords';
-
+import DetailView from '../screens/DetailView';
 import AllRecords from '../screens/AllRecords';
 
 // import LoginScreen from '../screens/LoginScreen';
@@ -77,7 +76,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="MidPriority" component={MidPriority} />
       <TabOneStack.Screen name="AllRecords" component={AllRecords} />
       <TabOneStack.Screen name="LeftAllRecords" component={LeftAllRecords} />
-      
+      <TabOneStack.Screen name="DetailView" component={DetailView} />
     </TabOneStack.Navigator>
   );
 }
