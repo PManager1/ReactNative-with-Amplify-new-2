@@ -62,7 +62,9 @@ class AllRecords extends React.Component {
 
     const Item = ({ item, onPress, style }) => (
       <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-        <Text style={styles.title}>{item.id}</Text>
+        <Text style={styles.title}>{item.companyName}</Text>
+        <Text style={styles.exname}>{item.executiveFirstName}</Text>
+        
       </TouchableOpacity>
     );
 
@@ -111,6 +113,9 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+  },
+  exname: {
+    fontSize: 16,
   },
 });
 
