@@ -49,7 +49,7 @@ import Communications from 'react-native-communications';
   <CardSection>
      <Input
       placeholder="company Name"
-      // value={this.props.agent_name}
+      value={companyName}
       // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
       />
 
@@ -58,17 +58,16 @@ import Communications from 'react-native-communications';
   <CardSection>
      <Input
       placeholder="Executive First Name"
-      // value={this.props.agent_name}
+      value={executiveFirstName}
       // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
       />
-
   </CardSection>
 
   <CardSection>
-      <Input
-      placeholder="Street address"
-      // value={this.props.address}
-      // onChangeText={text => this.props.propertyUpdate({ prop: 'address', value: text })}
+     <Input
+      placeholder="Executive Last Name"
+      value={executiveLastName}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
       />
   </CardSection>
 
@@ -82,7 +81,7 @@ import Communications from 'react-native-communications';
       </Col>
       <Col sm={9} md={1} lg={1} >
         <Input
-          // value = {this.props.cell}
+          value = {cell_phone}
           // onChangeText = {text => this.props.propertyUpdate({ prop: 'cell', value: text })}
           />
       </Col>
@@ -104,13 +103,13 @@ import Communications from 'react-native-communications';
     <Row size={14}>
       <Col sm={2} md={1} lg={1}>
         <Text>
-          Phone
+          Phone No
         </Text>
       </Col>
       <Col sm={9} md={1} lg={1} >
         <Input
           placeholder="555-555-5555"
-          // value={this.props.phone}
+          value={phone_no}
           // onChangeText={text => this.props.propertyUpdate({ prop: 'phone', value: text })}
           />
       </Col>
@@ -128,39 +127,55 @@ import Communications from 'react-native-communications';
       </CardSection>
 
 
+<CardSection>
+      <Input
+      placeholder="Contact Person"
+      value={contactPerson}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'address', value: text })}
+      />
+  </CardSection>
 
+
+ <CardSection>
+      <Input
+      placeholder="Street address"
+      value={address}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'address', value: text })}
+      />
+  </CardSection>
+  <CardSection>
+      <Input
+      placeholder="City"
+      value={city}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'address', value: text })}
+      />
+  </CardSection>
 
   <CardSection>
-    <Row size={12}>
-      <Col sm={5} md={4} lg={3}>
-        <Text>
-          List Price
-        </Text>
-      </Col>
-      <Col sm={7} md={4} lg={3}>
-           <Input
-            placeholder="$-5555"
-            // value={this.props.listPrice}
-            // onChangeText={text => this.props.propertyUpdate({ prop: 'listPrice', value: text })}
-            />
-      </Col>
-    </Row>
+      <Input
+      placeholder="State"
+      value={state}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'address', value: text })}
+      />
   </CardSection>
 
 
 
 
+
+
+
   <CardSection>
     <Row size={12}>
       <Col sm={5} md={4} lg={3}>
         <Text>
-          Offer Price
+          Status 
         </Text>
       </Col>
       <Col sm={7} md={4} lg={3}>
           <Input
-            placeholder="$-5555"
-            // value={this.props.Offer}
+            placeholder="status"
+            value={status}
             // onChangeText={text => this.props.propertyUpdate({ prop: 'Offer', value: text })}
             />
       </Col>
@@ -173,17 +188,16 @@ import Communications from 'react-native-communications';
     <Row size={12}>
       <Col sm={5} md={4} lg={3}>
         <Text>
-          Percentage Price
+          Owner Status
         </Text>
       </Col>
       <Col sm={7} md={4} lg={3}>
         <Input
-          value='70%'
+          value={ownerStatus}
           />
       </Col>
     </Row>
   </CardSection>
-
 
 
   <CardSection>
@@ -233,18 +247,14 @@ import Communications from 'react-native-communications';
       <Col sm={9} md={4} lg={3}>
             <Input
             placeholder="comments"
-            // value={this.props.comments}
+            value={comment}
             // onChangeText={text => this.props.propertyUpdate({ prop: 'comments', value: text })}
             />
       </Col>
     </Row>
   </CardSection>
 
-
-
 </Card>
-
-
 
             </ScrollView>
             </SafeAreaView>
