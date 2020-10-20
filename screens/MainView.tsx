@@ -40,8 +40,8 @@ const MainView = (props) => {
   <Button
     title="All Inbox (make it Flat List"
     type="outline"
-    // onPress={() => navigation.navigate('TabOneScreen')}
-    onPress={() => navigation.navigate('HighPriority')}
+    onPress={() => navigation.navigate('LeftAllRecords')}
+    // onPress={() => navigation.navigate('HighPriority')}
   />  
   <Badge value="99+" status="primary" />
 
