@@ -3,21 +3,28 @@ import React, { useState } from 'react';
 import Form from '../forms/Form';
 // import { login } from '../api/authentication';
 // import { setToken } from '../api/token';
-
 import { Text, TextInput, View, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 
 // const LoginScreen = ({ navigation }) => {
-    const DetailView = () => {   
-        
+    const DetailView = (props) => {   
+
+      console.log('12- props in Detials View recived =' , props); 
+      const { CompanyName , executiveFirstName } = props.route.params.item;
+      
+      console.log('16 - CompanyName = ', CompanyName); 
+      console.log(' 17 - executiveFirstName = ', executiveFirstName); 
+      console.log(' 18 - Full Item  = ', props.route.params.item); 
+
+      
         const handleResult = async (result) => {
-            if (result.ok && result.data) {
-            //   await setToken(result.data.auth_token);
-              navigation.navigate('Home');
-            } else if (result.status === 401) {
-              throw new Error('Invalid login.');
-            } else {
-              throw new Error('Something went wrong.');
-            }
+            // if (result.ok && result.data) {
+            // //   await setToken(result.data.auth_token);
+            //   navigation.navigate('Home');
+            // } else if (result.status === 401) {
+            //   throw new Error('Invalid login.');
+            // } else {
+            //   throw new Error('Something went wrong.');
+            // }
           };
 
           return (
@@ -28,73 +35,7 @@ import { Text, TextInput, View, SafeAreaView, ScrollView, StyleSheet } from 'rea
               afterSubmit={handleResult}
               buttonText="Submit"
               fields={{
-                CompanyName: {
-                  label: 'CompanyName',
-                  inputProps: {
-                    keyboardType: 'company-name',
-                  },
-                },                
-                ExecutivePersonName: {
-                  label: 'Executive Person Name',
-                  inputProps: {
-                    keyboardType: 'Authorized-name',
-                  },
-                }, 
-                ContactPerson: {
-                  label: 'Contact Person',
-                  inputProps: {
-                    keyboardType: 'Contact-name',
-                  },
-                },                                
-                Status: {
-                  label: 'Status',
-                  inputProps: {
-                    keyboardType: 'Status',
-                  },
-                }, 
-                DirectCell: {
-                  label: 'DirectCell',
-                  inputProps: {
-                    keyboardType: 'DirectCell',
-                  },
-                }, 
-                FollowUpDate: {
-                  label: 'FollowUpDate',
-                  inputProps: {
-                    keyboardType: 'FollowUpDate',
-                  },
-                },                                                                 
-                OwnerStatus: {
-                  label: 'OwnerStatus',
-                  inputProps: {
-                    keyboardType: 'OwnerStatus',
-                  },
-                },   
-                Street: {
-                  label: 'Street',
-                  inputProps: {
-                    keyboardType: 'Street',
-                  },
-                },                                                                                
-                City: {
-                  label: 'City',
-                  inputProps: {
-                    keyboardType: 'City',
-                  },
-                },                                                                                
-                State: {
-                  label: 'State',
-                  inputProps: {
-                    keyboardType: 'State',
-                  },
-                },                                                                                
-
-                email: {
-                  label: 'Email',
-                  inputProps: {
-                    keyboardType: 'email-address',
-                  },
-                },
+               
               }}
             />
             </ScrollView>

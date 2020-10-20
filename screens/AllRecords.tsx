@@ -84,7 +84,6 @@ class AllRecords extends React.Component {
     const handleSelect = (item) => {
       console.log('73--handle slected clicked  - id=', item); 
       this.props.navigation.navigate('DetailView',{item});
-
     }
 
     const renderItem = ({ item }) => {

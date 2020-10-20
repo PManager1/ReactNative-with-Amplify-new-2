@@ -9,13 +9,16 @@ import {
   FlatList,
   // ListItem,
   StyleSheet,
-  ActivityIndicator,  CheckBox,
+  ActivityIndicator,  
   TouchableOpacity
 } from 'react-native'
+
+import CheckBox from '@react-native-community/checkbox';
 
 import { Column as Col, Row } from 'react-native-flexbox-grid';
 import { Card, CardSection, Input } from '../components/common';
 // import Communications from 'react-native-communications';
+// import { Checkbox } from 'react-native-paper';
 
 
 const MainView = (props) => {
@@ -28,9 +31,16 @@ const MainView = (props) => {
   // const [isSelectedC, setSelectionC] = useState(false);
   // const [isSelectedU, setSelectionU] = useState(false);
   
+  const [toggleCheckBox, setToggleCheckBox] = useState(false)
+
   return (<>
   
 <View>
+
+<Button title="EMT/NEMT ?" onPress={() => console.log('something')} />
+<Button title="Dentist ?" onPress={() => console.log('something')} />
+<Button title="Urgent Care ?" onPress={() => console.log('something')} />
+<Button title="Labs ?" onPress={() => console.log('something')} />
 
 <Button
     title="--"
