@@ -22,11 +22,11 @@ import Communications from 'react-native-communications';
     const DetailView = (props) => {   
 
       console.log('12- props in Detials View recived =' , props); 
-      const { CompanyName , executiveFirstName } = props.route.params.item;
+      const { companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt,  } = props.route.params.item;
       
-      console.log('16 - CompanyName = ', CompanyName); 
-      console.log(' 17 - executiveFirstName = ', executiveFirstName); 
-      console.log(' 18 - Full Item  = ', props.route.params.item); 
+      console.log('27 - companyName = ', companyName); 
+      console.log(' 28 - executiveFirstName = ', executiveFirstName); 
+      console.log(' 29 - Full Item  = ', props.route.params.item); 
 
       
         const handleResult = async (result) => {
@@ -44,12 +44,20 @@ import Communications from 'react-native-communications';
             <SafeAreaView style={styles.container}> 
               <ScrollView style={styles.scrollView}>
            
-    
 
               <Card>
   <CardSection>
      <Input
-      placeholder="jane"
+      placeholder="company Name"
+      // value={this.props.agent_name}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
+      />
+
+  </CardSection>
+
+  <CardSection>
+     <Input
+      placeholder="Executive First Name"
       // value={this.props.agent_name}
       // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
       />
@@ -58,7 +66,7 @@ import Communications from 'react-native-communications';
 
   <CardSection>
       <Input
-      placeholder="123 Main St"
+      placeholder="Street address"
       // value={this.props.address}
       // onChangeText={text => this.props.propertyUpdate({ prop: 'address', value: text })}
       />

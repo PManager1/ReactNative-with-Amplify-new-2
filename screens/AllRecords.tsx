@@ -63,9 +63,11 @@ class AllRecords extends React.Component {
   }
 
   render(props) {
-    console.log('64-props =', this.props.navigation.navigate); 
+    // console.log('64-props =', this.props.navigation.navigate); 
+    // console.log('68- this.state  = ', this.state ); 
+    
     // const { navigate } = this.props.props.navigation;
-    console.log('68- this.state  = ', this.state ); 
+    
     // console.log('61- navigate  = ', navigate ); 
     // console.log('43- posts = ' this.state );
 
