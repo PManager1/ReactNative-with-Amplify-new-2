@@ -20,6 +20,10 @@ import { Card, CardSection, Input } from '../components/common';
 // import Communications from 'react-native-communications';
 // import { Checkbox } from 'react-native-paper';
 
+const item = {
+  id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
+  title: "First Item-1",
+}; 
 
 const MainView = (props) => {
   // console.log('23- inside MainView ListItem=', ListItem.Content);
@@ -59,6 +63,12 @@ const MainView = (props) => {
     title="AllRecords "
     type="outline"
     onPress={() => navigation.navigate('AllRecords')}
+  />
+
+<Button
+    title="DetailsView "
+    type="outline"
+    onPress={() => navigation.navigate('DetailView', {item})}
   />
 
 
