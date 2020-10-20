@@ -32,7 +32,6 @@ const styles = {
     paddingLeft: 5,
     fontSize: 18,
     lineHeight: 23,
-    // lineHeight: 40,
     flex: 2
   },
   labelStyle: {
