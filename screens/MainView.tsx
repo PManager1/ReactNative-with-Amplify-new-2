@@ -45,6 +45,14 @@ const MainView = (props) => {
   />  
   <Badge value="99+" status="primary" />
 
+  <Button
+    title="AllRecords "
+    type="outline"
+    onPress={() => navigation.navigate('AllRecords')}
+  />
+
+
+
 <Button
     title="Login "
     type="outline"
