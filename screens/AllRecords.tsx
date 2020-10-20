@@ -81,9 +81,10 @@ class AllRecords extends React.Component {
     );
 
     // const [selectedId, setSelectedId] = useState(null);
-    const handleSelect = (id) => {
-      console.log('73--handle slected clicked  - id=', id); 
-      this.props.navigation.navigate('DetailView');
+    const handleSelect = (item) => {
+      console.log('73--handle slected clicked  - id=', item); 
+      this.props.navigation.navigate('DetailView',{item});
+
     }
 
     const renderItem = ({ item }) => {
@@ -92,7 +93,7 @@ class AllRecords extends React.Component {
       return (
               <Item
                     item={item}
-                    onPress={() => handleSelect(item.id) }
+                    onPress={() => handleSelect(item) }
                 />
         
       );
