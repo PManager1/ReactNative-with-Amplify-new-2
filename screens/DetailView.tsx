@@ -12,12 +12,13 @@ import Form from '../forms/Form';
 import { Text, TextInput, View, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Constants, WebBrowser } from 'expo';
+
 import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
-
 import Communications from 'react-native-communications';
 
-// const LoginScreen = ({ navigation }) => {
+
+// const LoginScreen = ({ navigation }) => {s
     const DetailView = (props) => {   
 
       console.log('12- props in Detials View recived =' , props); 
@@ -28,8 +29,6 @@ import Communications from 'react-native-communications';
       console.log(' 18 - Full Item  = ', props.route.params.item); 
 
 
-      
-     
       
         const handleResult = async (result) => {
             // if (result.ok && result.data) {

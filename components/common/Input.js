@@ -31,7 +31,8 @@ const styles = {
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 18,
-    lineHeight: 23,
+    // lineHeight: 23,
+    lineHeight: 40,
     flex: 2
   },
   labelStyle: {
@@ -44,7 +45,7 @@ const styles = {
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'red',
+    // backgroundColor: 'red',
     width: width,
   }
 };
