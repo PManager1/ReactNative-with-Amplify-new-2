@@ -1,6 +1,11 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
+import { Dimensions } from "react-native";
+
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
+
 const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
 
@@ -38,7 +43,9 @@ const styles = {
     height: 40,
     flex: 1,
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'red',
+    width: width,
   }
 };
 
