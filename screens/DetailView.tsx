@@ -22,12 +22,44 @@ import SubmitButton from '../forms/SubmitButton'
 // const LoginScreen = ({ navigation }) => {s
     const DetailView = (props) => {   
 
+      // const [ companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt ] = useState('');
+
       console.log('12- props in Detials View recived =' , props); 
-      const { companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt,  } = props.route.params.item;
+      const { id, companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt  } = props.route.params.item;
+
       
       console.log('27 - companyName = ', companyName); 
       console.log(' 28 - executiveFirstName = ', executiveFirstName); 
       console.log(' 29 - Full Item  = ', props.route.params.item); 
+
+      const handleUpdatePost = async (event) => {
+        event.preventDefault()
+
+        const input = {
+             id,
+             companyName,
+             executiveFirstName: executiveFirstName,
+             executiveLastName: executiveLastName,  
+             address,
+             city, 
+             state, 
+             contactPerson, 
+             followupDate, 
+             phone_no, 
+             cell_phone, 
+             status, 
+             priorities, 
+             ownerStatus,  
+             comment, 
+             business_size, 
+             createdAt             
+        }
+
+        console.log('58--- input = ', input );
+        console.log(' 59 - this.state = ' , this.state );
+        await API.graphql(graphqlOperation(updateRecord, { input }))
+
+   }
 
       
         const handleResult = async (result) => {
@@ -45,8 +77,8 @@ import SubmitButton from '../forms/SubmitButton'
             <SafeAreaView style={styles.container}> 
               <ScrollView style={styles.scrollView}>
            
-
-              <Card>
+<form className="add-post" onSubmit={(event) => this.handleUpdatePost(event)}>
+  <Card>
   <CardSection>
      <Input
       placeholder="company Name"
@@ -161,11 +193,6 @@ import SubmitButton from '../forms/SubmitButton'
   </CardSection>
 
 
-
-
-
-
-
   <CardSection>
     <Row size={12}>
       <Col sm={5} md={4} lg={3}>
@@ -258,6 +285,10 @@ import SubmitButton from '../forms/SubmitButton'
 </Card>
 {/* onPress={} */}
 <SubmitButton title="Submit"  />
+
+<button>Update Post</button>
+
+</form>
 
             </ScrollView>
             </SafeAreaView>

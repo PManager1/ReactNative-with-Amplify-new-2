@@ -92,7 +92,7 @@ const MainView = (props) => {
   />
 
 <Button
-    title="Mid Priority "
+    title="Mid Priority (TEST) "
     type="outline"
     onPress={() => navigation.navigate('MidPriority')}
   />
