@@ -67,8 +67,9 @@ class AllRecords extends React.Component {
        .subscribe({
             next: postData => {
                  const { posts } = this.state
+                //  console.log('70 - - - posts', posts);
                  const updatePost = postData.value.data.onUpdateRecord
-                 console.log('71 - - - updatePost', updatePost);
+                 console.log('72 - - - updatePost', updatePost);
                  const index = posts.findIndex(post => post.id === updatePost.id) //had forgotten to say updatePost.id!
                  const updatePosts = [
                      ...posts.slice(0, index),

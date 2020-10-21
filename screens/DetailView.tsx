@@ -2,16 +2,13 @@ import { Dimensions } from "react-native";
 var width = Dimensions.get('window').width; //full width
 var height = Dimensions.get('window').height; //full height
 import React, { useState, Component } from 'react';
-
 import { Text, TextInput, View, SafeAreaView, ScrollView, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Constants, WebBrowser } from 'expo';
-
 import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
 import Communications from 'react-native-communications';
 import SubmitButton from '../forms/SubmitButton'
-
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { updateRecord } from '../src/graphql/mutations'
 
@@ -32,31 +29,39 @@ class DetailView extends Component {
 
   handleUpdatePost = async (event) => {
        event.preventDefault()
-
+       console.log('46--- this.state = ', this.state );
+       
        const input = {
             id: this.props.route.params.item.id,
             companyName: this.state.postData.companyName,
-            executiveFirstName: this.state.postData.executiveFirstName
+            executiveFirstName: this.state.postData.executiveFirstName,
        }
        console.log('46--- input = ', input );
        await API.graphql(graphqlOperation(updateRecord, { input }))
   }
    
   componentWillMount = async () => {
-    // Autho code comes here 
-      console.log(' 73- componentWillMount '); 
+  console.log(' 73- componentWillMount '); 
   }
 
   handlecompanyName = event => {
-    console.log('41- calling handlecompanyName');
-    this.setState({ postData: {...this.props.companyName,
-      companyName: event.target.value}})
+    console.log('49- calling handlecompanyName');
+    
+      this.setState({
+        postData: {...this.state.postData, companyName: event.target.value}  
+     })
+
+      console.log('53-  this.state.postData=', this.state.postData);
 }
 
-handleExecutiveFirstName = event => {
-  console.log('41- calling handlecompanyName');
-  this.setState({ postData: {...this.props.companyName,
-    companyName: event.target.value}})
+handleexecutiveFirstName = event => {
+  console.log('55- calling handleexecutiveFirstName');
+  console.log('49-  this.state.postData=', this.state.postData);
+  //this.state.postData.companyName
+    this.setState({ postData: {...this.state.postData,
+      executiveFirstName: event.target.value}})
+    
+    console.log('63-  this.state.postData=', this.state.postData);
 }
 
 render() {
@@ -75,23 +80,25 @@ render() {
                     name="companyName"
                     value={this.state.postData.companyName}
                     onChange={this.handlecompanyName} 
+                    // onChange={this.handleInputChange} 
                     />
 
     </CardSection>
 
     <CardSection>
                   <input 
-                    style={{height: "150px", fontSize: "19px"}}
+                    style={{height: "15px", fontSize: "19px"}}
                     type="text"
                     name="executiveFirstName"
                     value={this.state.postData.executiveFirstName}
-                    onChange={this.handleExecutiveFirstName}
+                    onChange={this.handleexecutiveFirstName}
+                    // onChange={this.handleInputChange}
                     />
     </CardSection>
 
     </Card>
     {/* onPress={} */}
-    <SubmitButton title="Submit"  />
+    {/* <SubmitButton title="Submit"  /> */}
 
     <button>Update Post</button>
 
