@@ -22,14 +22,11 @@ class DetailView extends Component {
       postData: {
         companyName: this.props.route.params.item.companyName,
         executiveFirstName: this.props.route.params.item.executiveFirstName,
-        // companyName: this.props.companyName,
-        // executiveFirstName: this.props.executiveFirstName
    }
   }
 
   handleUpdatePost = async (event) => {
        event.preventDefault()
-       console.log('46--- this.state = ', this.state );
        
        const input = {
             id: this.props.route.params.item.id,
@@ -45,23 +42,16 @@ class DetailView extends Component {
   }
 
   handlecompanyName = event => {
-    console.log('49- calling handlecompanyName');
     
       this.setState({
         postData: {...this.state.postData, companyName: event.target.value}  
      })
-
-      console.log('53-  this.state.postData=', this.state.postData);
 }
 
 handleexecutiveFirstName = event => {
-  console.log('55- calling handleexecutiveFirstName');
-  console.log('49-  this.state.postData=', this.state.postData);
-  //this.state.postData.companyName
+  
     this.setState({ postData: {...this.state.postData,
       executiveFirstName: event.target.value}})
-    
-    console.log('63-  this.state.postData=', this.state.postData);
 }
 
 render() {
@@ -80,7 +70,6 @@ render() {
                     name="companyName"
                     value={this.state.postData.companyName}
                     onChange={this.handlecompanyName} 
-                    // onChange={this.handleInputChange} 
                     />
 
     </CardSection>
@@ -92,7 +81,6 @@ render() {
                     name="executiveFirstName"
                     value={this.state.postData.executiveFirstName}
                     onChange={this.handleexecutiveFirstName}
-                    // onChange={this.handleInputChange}
                     />
     </CardSection>
 
