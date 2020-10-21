@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FlatList, View, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { listRecords } from '../src/graphql/queries'
 import { API, graphqlOperation } from 'aws-amplify'
-import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../graphql/subscriptions'
+import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../src/graphql/subscriptions'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 
 
@@ -41,7 +41,55 @@ class AllRecords extends React.Component {
   componentDidMount() {
     this.getPosts()
     // this.makeRemoteRequest()
+    this.createPostListener = API.graphql(graphqlOperation(onCreateRecord))
+    .subscribe({
+        next: postData => {
+             const newPost = postData.value.data.onCreateRecord
+             const prevPosts = this.state.posts.filter( post => post.id !== newPost.id)
+
+             const updatedPosts = [newPost, ...prevPosts]
+
+             this.setState({ posts: updatedPosts})
+        }
+    })
+
+    this.deletePostListener = API.graphql(graphqlOperation(onUpdateRecord))
+       .subscribe({
+            next: postData => {
+
+               const deletedPost = postData.value.data.onUpdateRecord
+               const updatedPosts = this.state.posts.filter(post => post.id !== deletedPost.id)
+               this.setState({posts: updatedPosts})
+            }
+       })
+
+       this.updatePostListener = API.graphql(graphqlOperation(onUpdateRecord))
+       .subscribe({
+            next: postData => {
+                 const { posts } = this.state
+                 const updatePost = postData.value.data.onUpdateRecord
+                 console.log('71 - - - updatePost', updatePost);
+                 const index = posts.findIndex(post => post.id === updatePost.id) //had forgotten to say updatePost.id!
+                 const updatePosts = [
+                     ...posts.slice(0, index),
+                    updatePost,
+                    ...posts.slice(index + 1)
+                   ]
+
+                   this.setState({ posts: updatePosts})
+
+            }
+       })
   }
+
+
+  componentWillUnmount() {
+    this.createPostListener.unsubscribe()
+    this.deletePostListener.unsubscribe()
+    this.updatePostListener.unsubscribe()
+    // this.createPostCommentListener.unsubscribe()
+    // this.createPostLikeListener.unsubscribe()
+}
 
   render(props) {
 

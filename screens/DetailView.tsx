@@ -12,6 +12,9 @@ import { Column as Col, Row } from 'react-native-flexbox-grid'
 import Communications from 'react-native-communications';
 import SubmitButton from '../forms/SubmitButton'
 
+import { Auth, API, graphqlOperation } from 'aws-amplify'
+import { updateRecord } from '../src/graphql/mutations'
+
 class DetailView extends Component {
 
   state = {
@@ -31,7 +34,7 @@ class DetailView extends Component {
        event.preventDefault()
 
        const input = {
-            id: this.props.id,
+            id: this.props.route.params.item.id,
             companyName: this.state.postData.companyName,
             executiveFirstName: this.state.postData.executiveFirstName
        }
@@ -62,8 +65,8 @@ render() {
 <SafeAreaView style={styles.container}> 
  <ScrollView style={styles.scrollView}>
 
-    <form className="add-post" 
-                onSubmit={this.handleAddPost} >
+ <form className="add-post"
+                         onSubmit={(event) => this.handleUpdatePost(event)}>
     <Card>
     <CardSection>
 
