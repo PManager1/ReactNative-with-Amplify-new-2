@@ -3,26 +3,7 @@ import { FlatList, View, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpa
 import { listRecords } from '../src/graphql/queries'
 import { API, graphqlOperation } from 'aws-amplify'
 import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../graphql/subscriptions'
-
-// import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
-// import { withNavigation } from 'react-navigation';
-
-const DATA = [
-  {
-    id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-    title: "First Item",
-  },
-  {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
-    title: "Second Item",
-  },
-  {
-    id: "58694a0f-3da1-471f-bd96-145571e29d72",
-    title: "Third Item",
-  },
-];
-
 
 
 class AllRecords extends React.Component {
@@ -63,16 +44,6 @@ class AllRecords extends React.Component {
   }
 
   render(props) {
-    // console.log('64-props =', this.props.navigation.navigate); 
-    // console.log('68- this.state  = ', this.state ); 
-    
-    // const { navigate } = this.props.props.navigation;
-    
-    // console.log('61- navigate  = ', navigate ); 
-    // console.log('43- posts = ' this.state );
-
-    
-    // const { navigation } = props;
 
     const Item = ({ item, onPress, style }) => (
       <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
