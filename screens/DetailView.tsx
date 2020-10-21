@@ -25,7 +25,7 @@ import SubmitButton from '../forms/SubmitButton'
       // const [ companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt ] = useState('');
 
       console.log('12- props in Detials View recived =' , props); 
-      const { id, companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt  } = props.route.params.item;
+      const { id, email, companyName , executiveFirstName, executiveLastName, address, city, state, contactPerson, followupDate, phone_no, cell_phone, status, priorities, ownerStatus,  comment, business_size, createdAt  } = props.route.params.item;
 
       
       console.log('27 - companyName = ', companyName); 
@@ -238,7 +238,7 @@ import SubmitButton from '../forms/SubmitButton'
       <Col sm={9} md={4} lg={3}>
             <Input
             placeholder="agent@email.com"
-            // value={this.props.agent_email_address}
+            value={email}
             // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_email_address', value: text })}
             />
       </Col>
