@@ -290,4 +290,12 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       height: 17.5,
     },
+    input:{
+      color: '#000',
+    paddingRight: 5,
+    paddingLeft: 5,
+    fontSize: 18,
+    lineHeight: 23,
+    flex: 2
+    }
   });
