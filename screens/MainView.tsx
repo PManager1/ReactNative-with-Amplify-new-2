@@ -7,6 +7,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import {
   View, Text,
   FlatList,
+  ScrollView,
   // ListItem,
   StyleSheet,
   ActivityIndicator,  
@@ -38,7 +39,8 @@ const MainView = (props) => {
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
   return (<>
-  
+  <ScrollView style={styles.sContainer}>
+
 <View>
 
 <Button title="EMT/NEMT ?" onPress={() => console.log('something')} />
@@ -116,6 +118,8 @@ const MainView = (props) => {
   />
 
 </View>
+
+</ScrollView>
 </>
 
 
@@ -138,6 +142,9 @@ function handleHelpPressHigh() {
 export default MainView; 
 
 const styles = StyleSheet.create({
+  sContainer: {
+    flex: 1,
+  },
   container: {
     flex: 1,
     alignItems: "center",
