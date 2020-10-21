@@ -21,7 +21,9 @@ class DetailView extends Component {
       email: '',
       postData: {
         companyName: this.props.route.params.item.companyName,
-        executiveFirstName: this.props.route.params.item.executiveFirstName
+        executiveFirstName: this.props.route.params.item.executiveFirstName,
+        // companyName: this.props.companyName,
+        // executiveFirstName: this.props.executiveFirstName
    }
   }
 
@@ -38,6 +40,7 @@ class DetailView extends Component {
   }
    
   componentWillMount = async () => {
+    // Autho code comes here 
       console.log(' 73- componentWillMount '); 
   }
 
@@ -47,42 +50,51 @@ class DetailView extends Component {
       companyName: event.target.value}})
 }
 
+handleExecutiveFirstName = event => {
+  console.log('41- calling handlecompanyName');
+  this.setState({ postData: {...this.props.companyName,
+    companyName: event.target.value}})
+}
+
 render() {
        console.log(' 70-  Edit Post props =', this.props );
        return (
 <SafeAreaView style={styles.container}> 
-<ScrollView style={styles.scrollView}>
+ <ScrollView style={styles.scrollView}>
 
+    <form className="add-post" 
+                onSubmit={this.handleAddPost} >
+    <Card>
+    <CardSection>
 
-<form className="add-post" 
-            onSubmit={this.handleAddPost} >
-<Card>
-<CardSection>
- <Input
-  placeholder="company Name"
-  value={this.props.route.params.item.companyName}
-  // value={this.state.companyName}
-  onChange={this.handlecompanyName} 
-  />
+                <input style={{fontSize: "19px"}}
+                    type="text" placeholder="Title"
+                    name="companyName"
+                    value={this.state.postData.companyName}
+                    onChange={this.handlecompanyName} 
+                    />
 
-</CardSection>
+    </CardSection>
 
-<CardSection>
- <Input
-  placeholder="Executive First Name"
-  value={this.props.route.params.item.executiveFirstName}
-  />
-</CardSection>
+    <CardSection>
+                  <input 
+                    style={{height: "150px", fontSize: "19px"}}
+                    type="text"
+                    name="executiveFirstName"
+                    value={this.state.postData.executiveFirstName}
+                    onChange={this.handleExecutiveFirstName}
+                    />
+    </CardSection>
 
-</Card>
-{/* onPress={} */}
-<SubmitButton title="Submit"  />
+    </Card>
+    {/* onPress={} */}
+    <SubmitButton title="Submit"  />
 
-<button>Update Post</button>
+    <button>Update Post</button>
 
-</form>
-        </ScrollView>
-        </SafeAreaView>
+    </form>
+    </ScrollView>
+</SafeAreaView>
       );
   }
 }

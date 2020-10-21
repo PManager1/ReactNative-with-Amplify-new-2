@@ -78,7 +78,6 @@ class AllRecords extends React.Component {
       <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
         <Text style={styles.title}>{item.companyName}</Text>
         <Text style={styles.exname}>{item.executiveFirstName}</Text>
-        
       </TouchableOpacity>
     );
 
@@ -104,7 +103,6 @@ class AllRecords extends React.Component {
       <SafeAreaView style={styles.container}>
         <FlatList
           data={this.state.posts}
-          // data={DATA}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           // extraData={selectedId}
