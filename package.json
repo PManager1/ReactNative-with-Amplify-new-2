@@ -35,6 +35,7 @@
     "lodash.filter": "^4.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-hook-form": "^6.9.5",
     "react-native": "https://github.com/expo/react-native/archive/sdk-39.0.3.tar.gz",
     "react-native-communications": "^2.2.1",
     "react-native-elements": "^3.0.0-alpha.1",
