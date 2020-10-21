@@ -33,7 +33,6 @@ class CreateRecord extends Component {
         }
 
         await API.graphql(graphqlOperation(createRecord, { input }))
-
         this.setState({ companyName: "", executiveFirstName: ""})
    }      
 
