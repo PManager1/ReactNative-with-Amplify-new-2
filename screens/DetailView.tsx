@@ -1,10 +1,4 @@
 // Bring in action from api etc here. 
-
-import { Dimensions } from "react-native";
-var width = Dimensions.get('window').width; //full width
-var height = Dimensions.get('window').height; //full height
-
-
 import React, { useState, Component } from 'react';
 import Form from '../forms/Form';
 // import { login } from '../api/authentication';
@@ -66,27 +60,24 @@ handleexecutiveFirstName = event => {
     return (
     <SafeAreaView style={styles.container}> 
       <ScrollView style={styles.scrollView}>
-           
-    
+      
+
  <Card>
+  
   <CardSection>
-     <Input
-      placeholder="jane"
-      // value={this.props.agent_name}
-      // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
-      />
-
-  </CardSection>
-
-
-  <CardSection>
+        <View style={styles.viewContainerStyle}>
           <TextInput style = {styles.input}
-                      underlineColorAndroid = "transparent"
-                      placeholder = "Test"
+                      placeholder = "Company Name"
+                      autoCorrect={false}
+                      underlineColorAndroid='transparent'
                       placeholderTextColor = "#9a73ef"
                       autoCapitalize = "none"
                       //  onChangeText = {this.handleEmail}
+                      value={this.state.postData.companyName}
+                      onChange={this.handlecompanyName} 
+
                       />
+          </View>
   </CardSection>
 
 
@@ -266,9 +257,7 @@ handleexecutiveFirstName = event => {
   </CardSection>
 
 
-
 </Card>
-
 
 
             </ScrollView>
@@ -290,8 +279,15 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       height: 17.5,
     },
+    viewContainerStyle:{
+      height: 40,
+      flex: 1,
+      flexDirection: 'row',
+      alignItems: 'center',
+      // width: width,
+    },
     input:{
-      color: '#000',
+    color: '#000',
     paddingRight: 5,
     paddingLeft: 5,
     fontSize: 18,
