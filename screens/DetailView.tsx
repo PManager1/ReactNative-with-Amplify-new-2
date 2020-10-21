@@ -18,18 +18,57 @@ import Communications from 'react-native-communications';
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { updateRecord } from '../src/graphql/mutations'
 
-class DetailView extends React.Component {       
 
-      
-    
+class DetailView extends React.Component {       
+  
+  state = {
+    id: '', 
+    companyName: '', 
+    executiveFirstName: '',
+    email: '',
+    postData: {
+      companyName: this.props.route.params.item.companyName,
+      executiveFirstName: this.props.route.params.item.executiveFirstName,
+ }
+}
+
+handleUpdatePost = async (event) => {
+     event.preventDefault()
+     
+     const input = {
+          id: this.props.route.params.item.id,
+          companyName: this.state.postData.companyName,
+          executiveFirstName: this.state.postData.executiveFirstName,
+     }
+     console.log('46--- input = ', input );
+     await API.graphql(graphqlOperation(updateRecord, { input }))
+}
+ 
+componentWillMount = async () => {
+console.log(' 73- componentWillMount '); 
+}
+
+handlecompanyName = event => {
+  
+    this.setState({
+      postData: {...this.state.postData, companyName: event.target.value}  
+   })
+}
+
+handleexecutiveFirstName = event => {
+  this.setState({ postData: {...this.state.postData,
+    executiveFirstName: event.target.value}})
+}
+
+
   render(props) {
-          return (
-            <SafeAreaView style={styles.container}> 
-              <ScrollView style={styles.scrollView}>
+
+    return (
+    <SafeAreaView style={styles.container}> 
+      <ScrollView style={styles.scrollView}>
            
     
-
-              <Card>
+ <Card>
   <CardSection>
      <Input
       placeholder="jane"
@@ -38,6 +77,18 @@ class DetailView extends React.Component {
       />
 
   </CardSection>
+
+
+  <CardSection>
+          <TextInput style = {styles.input}
+                      underlineColorAndroid = "transparent"
+                      placeholder = "Test"
+                      placeholderTextColor = "#9a73ef"
+                      autoCapitalize = "none"
+                      //  onChangeText = {this.handleEmail}
+                      />
+  </CardSection>
+
 
   <CardSection>
       <Input
