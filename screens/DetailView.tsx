@@ -82,25 +82,13 @@ render() {
                     onChange={this.handleexecutiveFirstName}
                     />
     </CardSection>
-    <CardSection>
-                <Input
-                      placeholder="company Name"
-                      name="companyName"
-                      value={this.state.postData.companyName}
-                    onChange={this.handlecompanyName} 
-                      />
-
-
-    </CardSection>
 
     <CardSection>
-
                   <Input
                         placeholder="Executive First Name"
                         value={this.state.postData.executiveFirstName}
                         onChange={this.handleexecutiveFirstName}
-                        />
-                        
+                        />  
     </CardSection>
 
     </Card>
