@@ -14,8 +14,23 @@ import { useForm, Controller } from "react-hook-form";
 
 export default function CreateRecord() {
   const { control, handleSubmit, errors } = useForm();
-  
-  const onSubmit = data => console.log(data);
+
+//   const onSubmit = data => console.log(data);
+
+    const    onSubmit = async (data) => {
+
+        console.log(data);
+        // event.preventDefault()
+
+        const input = {
+             companyName: data.firstName,
+             executiveFirstName: data.lastName,
+             createdAt: new Date().toISOString() 
+        }
+        console.log(input);
+        await API.graphql(graphqlOperation(createRecord, { input }))
+        // this.setState({ companyName: "", executiveFirstName: ""})
+   }      
 
   return (
     <View>
