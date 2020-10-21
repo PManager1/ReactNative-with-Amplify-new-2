@@ -92,8 +92,8 @@ render() {
     </CardSection>
 
     </Card>
-    {/* onPress={} */}
-    {/* <SubmitButton title="Submit"  /> */}
+    
+    <SubmitButton title="Submit"  />
 
     <button>Update Post</button>
 
