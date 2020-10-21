@@ -19,7 +19,7 @@ const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => 
         underlineColorAndroid={'transparent'}
         style={inputStyle}
         value={value}
-        onChangeText={onChangeText}
+        // onChangeText={onChangeText}
       />
     </View>
   );

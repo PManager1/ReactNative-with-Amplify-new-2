@@ -22,6 +22,7 @@ type Record @model{
    ownerStatus: String
    OwnerId: String
    OwnerUsername: String
+   Linkedin: String
    base: String
 }
 

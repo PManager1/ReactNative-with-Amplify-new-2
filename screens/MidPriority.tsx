@@ -23,7 +23,6 @@ const MidPriority = () => {
   const [input, handleInputChange] = useInputChange(); 
 
 
-  
   return (
     <form>
       <div>

@@ -14,6 +14,8 @@ import MainView from '../screens/MainView';
 import HighPriority from '../screens/HighPriority';
 import LowPriority from '../screens/LowPriority';
 import MidPriority from '../screens/MidPriority';
+import CreateRecord from '../screens/CreateRecord';
+
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
 import LeftAllRecords from '../screens/LeftAllRecords';
@@ -74,6 +76,7 @@ function TabOneNavigator() {
       
       <TabOneStack.Screen name="HighPriority" component={HighPriority} />
       <TabOneStack.Screen name="MidPriority" component={MidPriority} />
+      <TabOneStack.Screen name="CreateRecord" component={CreateRecord} />
       <TabOneStack.Screen name="AllRecords" component={AllRecords} />
       <TabOneStack.Screen name="LeftAllRecords" component={LeftAllRecords} />
       <TabOneStack.Screen name="DetailView" component={DetailView} />

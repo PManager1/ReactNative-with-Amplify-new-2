@@ -68,6 +68,12 @@ const MainView = (props) => {
   />
 
 <Button
+    title="Create Record "
+    type="outline"
+    onPress={() => navigation.navigate('CreateRecord')}
+  />
+
+<Button
     title="DetailsView "
     type="outline"
     onPress={() => navigation.navigate('DetailView', {item})}
