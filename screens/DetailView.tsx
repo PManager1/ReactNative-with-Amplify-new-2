@@ -114,6 +114,7 @@ import SubmitButton from '../forms/SubmitButton'
       </Col>
       <Col sm={9} md={1} lg={1} >
         <Input
+          placeholder="9999"
           value = {cell_phone}
           // onChangeText = {text => this.props.propertyUpdate({ prop: 'cell', value: text })}
           />
