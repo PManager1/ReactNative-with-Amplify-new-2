@@ -49,13 +49,16 @@ class DetailView extends Component {
 }
 
 handleexecutiveFirstName = event => {
-  
     this.setState({ postData: {...this.state.postData,
       executiveFirstName: event.target.value}})
 }
 
 render() {
        console.log(' 70-  Edit Post props =', this.props );
+
+       const { inputStyle  } = styles;
+
+
        return (
 <SafeAreaView style={styles.container}> 
  <ScrollView style={styles.scrollView}>
@@ -64,24 +67,40 @@ render() {
                          onSubmit={(event) => this.handleUpdatePost(event)}>
     <Card>
     <CardSection>
-
-                <input style={{fontSize: "19px"}}
-                    type="text" placeholder="Title"
-                    name="companyName"
+                <TextInput 
+                    style={inputStyle} 
+                    placeholder="companyName"
                     value={this.state.postData.companyName}
                     onChange={this.handlecompanyName} 
                     />
+    </CardSection>
+    <CardSection>
+                <TextInput 
+                    style={inputStyle} 
+                    placeholder="executiveFirstName"
+                    value={this.state.postData.executiveFirstName}
+                    onChange={this.handleexecutiveFirstName}
+                    />
+    </CardSection>
+    <CardSection>
+                <Input
+                      placeholder="company Name"
+                      name="companyName"
+                      value={this.state.postData.companyName}
+                    onChange={this.handlecompanyName} 
+                      />
+
 
     </CardSection>
 
     <CardSection>
-                  <input 
-                    style={{height: "15px", fontSize: "19px"}}
-                    type="text"
-                    name="executiveFirstName"
-                    value={this.state.postData.executiveFirstName}
-                    onChange={this.handleexecutiveFirstName}
-                    />
+
+                  <Input
+                        placeholder="Executive First Name"
+                        value={this.state.postData.executiveFirstName}
+                        onChange={this.handleexecutiveFirstName}
+                        />
+                        
     </CardSection>
 
     </Card>
@@ -106,6 +125,14 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: 15,
+    },
+    inputStyle: {
+      color: '#000',
+      paddingRight: 5,
+      paddingLeft: 5,
+      fontSize: 19,
+      lineHeight: 23,
+      flex: 2
     },
     error: {
       marginBottom: 20,
