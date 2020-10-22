@@ -44,6 +44,8 @@
     "react-native-elements": "^3.0.0-alpha.1",
     "react-native-flexbox-grid": "^0.3.2",
     "react-native-gesture-handler": "~1.7.0",
+    "react-native-ionicons": "^4.6.5",
+    "react-native-multiple-select-list": "^1.0.4",
     "react-native-paper": "^4.2.0",
     "react-native-safe-area-context": "3.1.4",
     "react-native-screens": "~2.10.1",

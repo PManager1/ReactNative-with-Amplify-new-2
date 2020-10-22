@@ -26,7 +26,7 @@ import DetailView from '../screens/DetailView';
 import AllRecords from '../screens/AllRecords';
 
 // import LoginScreen from '../screens/LoginScreen';
-// import MultiSelector from '../screens/Components/MultiSelector';
+import MultiSelector from '../screens/MultiSelector';
 // import DateTimePicker from '../screens/DateTimePicker';
 
 
@@ -85,6 +85,8 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="HooksForm" component={HooksForm} />
       <TabOneStack.Screen name="Charts" component={Charts} />
       <TabOneStack.Screen name="CalendarScreen" component={CalendarScreen} />
+      <TabOneStack.Screen name="MultiSelector" component={MultiSelector} />
+      
       
     </TabOneStack.Navigator>
   );
