@@ -18,14 +18,21 @@ import Communications from 'react-native-communications';
 import SubmitButton from '../forms/SubmitButton'
 import { Button } from 'react-native-elements';
 import DateTimePicker from '@react-native-community/datetimepicker';
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 
 export default function HooksForm(props) {
+
+  const { navigation } = props;
+  console.log(' 26- props', props);
+
 const { control, handleSubmit, errors } = useForm();
 
 const onPhonePress = (p) =>{
-  // const { phone } = this.props;
-  // console.log(' pho = ', phone );
-  // console.log("cell no detail"+ phone);
+  Communications.phonecall(p, true);
+}
+
+
+const onCalendarPress = (p) =>{
   Communications.phonecall(p, true);
 }
 
@@ -143,9 +150,6 @@ return (
             />
             </View>
       </Col>            
-      {/* <Col sm={1} md={1} lg={1}>
-        <Icon  name="arrow-circle-up" size={30} color="#900"  />
-      </Col>  */}
       <Col sm={1} md={1} lg={1}>
             <Icon name="phone"  size={30} color="#228B22" onPress= {()=> onPhonePress( props.route.params.item.phone_no  )}  />
 
@@ -216,7 +220,34 @@ return (
             defaultValue={props.route.params.item.followupDate}
             />
             </View>
+            {/* navigate to calendar  */}
+
       </CardSection>   
+
+
+      <Text style={styles.textStyle}> Follow up Date</Text>
+      <CardSection>   
+      <Row size={12}>
+      <Col sm={11} md={9} lg={11} >
+      <View style={styles.viewContainerStyle}>
+        <Controller control={control} render={({ onChange, onBlur, value })=> (
+          <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
+            value={value}
+            />
+            )}
+            name="followupDate"
+            // rules={{ required: true }}
+            defaultValue={props.route.params.item.followupDate}
+            />
+            </View>
+      </Col>            
+      <Col sm={1} md={1} lg={1}>
+            <Icon name="calendar"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('CalendarScreen') }  />
+
+      </Col>           
+        </Row>                 
+      </CardSection> 
+
 
 
       <Text style={styles.textStyle}> Comment</Text>

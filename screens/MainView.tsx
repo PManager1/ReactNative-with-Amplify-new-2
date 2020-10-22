@@ -64,6 +64,13 @@ const MainView = (props) => {
   />
 
 <Button
+    title="Calendar"
+    type="outline"
+    onPress={() => navigation.navigate('CalendarScreen')}
+  />
+
+
+<Button
     title="Charts"
     type="outline"
     onPress={() => navigation.navigate('Charts')}

@@ -9,7 +9,6 @@ import TabOneScreen from '../screens/TabOneScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
 
-
 import MainView from '../screens/MainView';
 import HighPriority from '../screens/HighPriority';
 import LowPriority from '../screens/LowPriority';
@@ -17,6 +16,8 @@ import MidPriority from '../screens/MidPriority';
 import CreateRecord from '../screens/CreateRecord';
 import HooksForm from '../screens/HooksForm';
 import Charts from '../screens/Charts';
+import CalendarScreen from '../screens/CalendarScreen';
+
 
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
@@ -83,6 +84,8 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="DetailView" component={DetailView} />
       <TabOneStack.Screen name="HooksForm" component={HooksForm} />
       <TabOneStack.Screen name="Charts" component={Charts} />
+      <TabOneStack.Screen name="CalendarScreen" component={CalendarScreen} />
+      
     </TabOneStack.Navigator>
   );
 }
