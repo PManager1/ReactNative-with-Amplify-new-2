@@ -104,7 +104,7 @@ class AllRecords extends React.Component {
     // const [selectedId, setSelectedId] = useState(null);
     const handleSelect = (item) => {
       console.log('73--handle slected clicked  - id=', item); 
-      this.props.navigation.navigate('DetailView',{item});
+      this.props.navigation.navigate('HooksForm',{item});
     }
 
     const renderItem = ({ item }) => {

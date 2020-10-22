@@ -1,3 +1,7 @@
+
+// export default function HooksForm(props) {
+
+
 import React, { useState, Component } from 'react';
 import { ListItem, Icon, Avatar } from 'react-native-elements'
 import { View, Text, SafeAreaView, ScrollView, StyleSheet  } from 'react-native'
@@ -8,9 +12,10 @@ import { createRecord } from '../src/graphql/mutations'
 import { TextInput, Button, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
-export default function CreateRecord() {
+export default function HooksForm(props) {
   const { control, handleSubmit, errors } = useForm();
 
+//   const onSubmit = data => console.log(data);
     const onSubmit = async (data) => {
         console.log(data);
         const input = {
@@ -39,9 +44,8 @@ export default function CreateRecord() {
         )}
         name="firstName"
         rules={{ required: true }}
-        defaultValue="1234--first"
+        defaultValue={props.route.params.item.companyName}
       />
-      {errors.firstName && <Text>This is required.</Text>}
 
       <Controller
         control={control}
@@ -57,7 +61,7 @@ export default function CreateRecord() {
         </CardSection>  
         )}
         name="lastName"
-        defaultValue=""
+        defaultValue={props.route.params.item.executiveFirstName}
       />
 
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />
@@ -170,3 +174,5 @@ const styles = StyleSheet.create({
     flex: 2
     }
   });
+
+  

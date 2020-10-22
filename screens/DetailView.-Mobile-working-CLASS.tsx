@@ -1,4 +1,10 @@
 // Bring in action from api etc here. 
+
+import { Dimensions } from "react-native";
+var width = Dimensions.get('window').width; //full width
+var height = Dimensions.get('window').height; //full height
+
+
 import React, { useState, Component } from 'react';
 import Form from '../forms/Form';
 // import { login } from '../api/authentication';
@@ -12,74 +18,26 @@ import Communications from 'react-native-communications';
 import { Auth, API, graphqlOperation } from 'aws-amplify'
 import { updateRecord } from '../src/graphql/mutations'
 
-
 class DetailView extends React.Component {       
-  
-  state = {
-    id: '', 
-    companyName: '', 
-    executiveFirstName: '',
-    email: '',
-    postData: {
-      companyName: this.props.route.params.item.companyName,
-      executiveFirstName: this.props.route.params.item.executiveFirstName,
- }
-}
 
-handleUpdatePost = async (event) => {
-     event.preventDefault()
-     
-     const input = {
-          id: this.props.route.params.item.id,
-          companyName: this.state.postData.companyName,
-          executiveFirstName: this.state.postData.executiveFirstName,
-     }
-     console.log('46--- input = ', input );
-     await API.graphql(graphqlOperation(updateRecord, { input }))
-}
- 
-componentWillMount = async () => {
-console.log(' 73- componentWillMount '); 
-}
-
-handlecompanyName = event => {
-  
-    this.setState({
-      postData: {...this.state.postData, companyName: event.target.value}  
-   })
-}
-
-handleexecutiveFirstName = event => {
-  this.setState({ postData: {...this.state.postData,
-    executiveFirstName: event.target.value}})
-}
-
-
-  render(props) {
-
-    return (
-    <SafeAreaView style={styles.container}> 
-      <ScrollView style={styles.scrollView}>
       
+    
+  render(props) {
+          return (
+            <SafeAreaView style={styles.container}> 
+              <ScrollView style={styles.scrollView}>
+           
+    
 
- <Card>
-  
+              <Card>
   <CardSection>
-        <View style={styles.viewContainerStyle}>
-          <TextInput style = {styles.input}
-                      placeholder = "Company Name"
-                      autoCorrect={false}
-                      underlineColorAndroid='transparent'
-                      placeholderTextColor = "#9a73ef"
-                      autoCapitalize = "none"
-                      //  onChangeText = {this.handleEmail}
-                      value={this.state.postData.companyName}
-                      onChange={this.handlecompanyName} 
+     <Input
+      placeholder="jane"
+      // value={this.props.agent_name}
+      // onChangeText={text => this.props.propertyUpdate({ prop: 'agent_name', value: text })}
+      />
 
-                      />
-          </View>
   </CardSection>
-
 
   <CardSection>
       <Input
@@ -257,7 +215,9 @@ handleexecutiveFirstName = event => {
   </CardSection>
 
 
+
 </Card>
+
 
 
             </ScrollView>
@@ -279,19 +239,4 @@ const styles = StyleSheet.create({
       marginBottom: 20,
       height: 17.5,
     },
-    viewContainerStyle:{
-      height: 40,
-      flex: 1,
-      flexDirection: 'row',
-      alignItems: 'center',
-      // width: width,
-    },
-    input:{
-    color: '#000',
-    paddingRight: 5,
-    paddingLeft: 5,
-    fontSize: 18,
-    lineHeight: 23,
-    flex: 2
-    }
   });

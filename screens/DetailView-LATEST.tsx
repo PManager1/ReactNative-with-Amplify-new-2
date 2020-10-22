@@ -1,4 +1,3 @@
-// Bring in action from api etc here. 
 import React, { useState, Component } from 'react';
 import Form from '../forms/Form';
 // import { login } from '../api/authentication';
@@ -62,8 +61,8 @@ handleexecutiveFirstName = event => {
       <ScrollView style={styles.scrollView}>
       
 
+<form onSubmit={(event) => this.handleUpdatePost(event)}>
  <Card>
-  
   <CardSection>
         <View style={styles.viewContainerStyle}>
           <TextInput style = {styles.input}
@@ -258,8 +257,7 @@ handleexecutiveFirstName = event => {
 
 
 </Card>
-
-
+</form>
             </ScrollView>
             </SafeAreaView>
           );
