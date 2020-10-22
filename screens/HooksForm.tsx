@@ -9,7 +9,7 @@ import { Column as Col, Row } from 'react-native-flexbox-grid'
 import { API, graphqlOperation, Auth } from 'aws-amplify'
 
 import { updateRecord } from '../src/graphql/mutations'
-import { TextInput, Button, Alert } from "react-native";
+import { TextInput, Button, Alert, Platform } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 export default function HooksForm(props) {
