@@ -83,4 +83,5 @@ https://codesandbox.io/s/react-hook-form-get-started-forked-gv881?file=/src/inde
 TODO > in details view.  convert the phone icon into Submit like button 
 
 
+Charts - https://www.npmjs.com/package/react-native-chart-kit
 

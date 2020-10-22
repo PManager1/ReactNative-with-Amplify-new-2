@@ -49,11 +49,6 @@ const MainView = (props) => {
 <Button title="Urgent Care ?" onPress={() => console.log('something')} />
 <Button title="Labs ?" onPress={() => console.log('something')} />
 
-<Button
-    title="--"
-    type="outline"
-  />
-
   <Badge value="99+" status="primary" />
 
   <Button
@@ -67,6 +62,13 @@ const MainView = (props) => {
     type="outline"
     onPress={() => navigation.navigate('AllRecords')}
   />
+
+<Button
+    title="Charts"
+    type="outline"
+    onPress={() => navigation.navigate('Charts')}
+  />
+
   
   <Button
     title="Hooks-form-ex "
