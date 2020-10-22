@@ -53,16 +53,11 @@ const MainView = (props) => {
     type="outline"
   />
 
-  <Button
-    title="All Inbox (make it Flat List"
-    type="outline"
-    onPress={() => navigation.navigate('LeftAllRecords')}
-    // onPress={() => navigation.navigate('HighPriority')}
-  />  
+
   <Badge value="99+" status="primary" />
 
   <Button
-    title="AllRecords "
+    title="AllRecords (Flat it) "
     type="outline"
     onPress={() => navigation.navigate('AllRecords')}
   />

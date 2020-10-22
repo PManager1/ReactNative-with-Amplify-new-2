@@ -13,7 +13,6 @@ import { updateRecord } from '../src/graphql/mutations'
 
 
 class DetailView extends React.Component {       
-  
   state = {
     id: '', 
     companyName: '', 

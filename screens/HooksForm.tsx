@@ -8,28 +8,30 @@ import { View, Text, SafeAreaView, ScrollView, StyleSheet  } from 'react-native'
 import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
 import { API, graphqlOperation, Auth } from 'aws-amplify'
-import { createRecord } from '../src/graphql/mutations'
+
+import { updateRecord } from '../src/graphql/mutations'
 import { TextInput, Button, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
 export default function HooksForm(props) {
   const { control, handleSubmit, errors } = useForm();
 
-//   const onSubmit = data => console.log(data);
     const onSubmit = async (data) => {
         console.log(data);
         const input = {
-             companyName: data.firstName,
-             executiveFirstName: data.lastName,
-             createdAt: new Date().toISOString() 
+            id: props.route.params.item.id,
+             companyName: data.companyName,
+             executiveFirstName: data.executiveFirstName,
+            //  lastUpdated: new Date().toISOString() 
         }
         console.log(input);
-        await API.graphql(graphqlOperation(createRecord, { input }))
+        await API.graphql(graphqlOperation(updateRecord, { input }))
    }      
 
   return (
 <ScrollView>
-    <View>               
+    <View>  
+      <Card>
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
@@ -42,11 +44,13 @@ export default function HooksForm(props) {
           />
           </CardSection>
         )}
-        name="firstName"
+        name="companyName"
         rules={{ required: true }}
         defaultValue={props.route.params.item.companyName}
       />
 
+ <CardSection>
+   
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
@@ -60,9 +64,11 @@ export default function HooksForm(props) {
           />
         </CardSection>  
         )}
-        name="lastName"
+        name="executiveFirstName"
         defaultValue={props.route.params.item.executiveFirstName}
       />
+ </CardSection>
+</Card>             
 
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
@@ -72,79 +78,6 @@ export default function HooksForm(props) {
 }
 
 
-
-// class CreateRecord extends Component {
-//     state = {
-//         companyName: "",   
-//         executiveFirstName: "",  
-//     }
-
-//     componentDidMount = async () => {
- 
-//     }
-
-//     handleChangePost = event => this.setState({
-//         [event.target.name] : event.target.value 
-//         })
-
-//    handleAddPost = async event => {
-//         event.preventDefault()
-
-//         const input = {
-//              companyName: this.state.companyName,
-//              executiveFirstName: this.state.executiveFirstName,
-//              createdAt: new Date().toISOString() 
-//         }
-
-//         await API.graphql(graphqlOperation(createRecord, { input }))
-//         this.setState({ companyName: "", executiveFirstName: ""})
-//    }      
-
-//         render() {
-
-//             return(
-//                 <>
-//                 <form className="add-post"  onSubmit={this.handleAddPost} >
-//                     <Card>
-//                     <CardSection>
-
-//                 <input style={{ font: '19px'}} 
-//                     type="text" 
-//                     placeholder="companyName"
-//                     name="companyName"
-//                     required
-//                     value={this.state.companyName}
-//                     onChange={this.handleChangePost}
-//                 />
-//  </CardSection>
-
-//  <CardSection>
-//                 <input 
-//                   type="text"
-//                   name="executiveFirstName"
-//                   rows="3"
-//                   cols="40"
-//                   required
-//                   placeholder="executiveFirstName"
-//                   value={this.state.executiveFirstName}
-//                   onChange={this.handleChangePost}
-//                   />
-// </CardSection>                  
-            
-
-//     <input type="submit"
-//                   className="btn"
-//                   style={{ fontSize: '19px'}}/>
-
-//                     </Card>
-//                 </form>
-//                 </>
-//             );
-
-//         }
-
-//     }
-//     export default CreateRecord;
 
 const styles = StyleSheet.create({
     container: {
