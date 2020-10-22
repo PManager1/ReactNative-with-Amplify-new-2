@@ -9,9 +9,15 @@ import { Column as Col, Row } from 'react-native-flexbox-grid'
 import { API, graphqlOperation, Auth } from 'aws-amplify'
 
 import { updateRecord } from '../src/graphql/mutations'
-import { TextInput, Button, Alert, Platform } from "react-native";
+import { TextInput, 
+  // Button,
+   Alert, 
+   Platform } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import Communications from 'react-native-communications';
+import SubmitButton from '../forms/SubmitButton'
+import { Button } from 'react-native-elements';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export default function HooksForm(props) {
 const { control, handleSubmit, errors } = useForm();
@@ -26,25 +32,25 @@ const onPhonePress = (p) =>{
 const onSubmit = async (data) => {
 console.log(data);
 const input = {
-id: props.route.params.item.id,
-companyName: data.companyName,
-executiveFirstName: data.executiveFirstName,
-executiveLastName: data.executiveLastName,
-contactPerson: data.contactPerson,
-followupDate: data.followupDate,
-comment: data.comment,
-email: data.email,
-status: data.status,
-priorities: data.priorities,
-phone_no: data.phone_no,
-address: data.address,
-cell_phone: data.cell_phone,
-city: data.city,
-state: data.state,
-ownerStatus: data.ownerStatus,
-Linkedin: data.Linkedin,
-business_size: data.business_size,
-// lastUpdated: new Date().toISOString()
+                id: props.route.params.item.id,
+                companyName: data.companyName,
+                executiveFirstName: data.executiveFirstName,
+                executiveLastName: data.executiveLastName,
+                contactPerson: data.contactPerson,
+                followupDate: data.followupDate,
+                comment: data.comment,
+                email: data.email,
+                status: data.status,
+                priorities: data.priorities,
+                phone_no: data.phone_no,
+                address: data.address,
+                cell_phone: data.cell_phone,
+                city: data.city,
+                state: data.state,
+                ownerStatus: data.ownerStatus,
+                Linkedin: data.Linkedin,
+                business_size: data.business_size,
+                // lastUpdated: new Date().toISOString()
 }
 console.log(input);
 await API.graphql(graphqlOperation(updateRecord, { input }))
@@ -55,7 +61,10 @@ return (
 <SafeAreaView>
 <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"}>
   <View>
+    {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
+    
     <Button title="Submit" onPress={handleSubmit(onSubmit)} />
+
     <Card>
       <Text  style={styles.textStyle}> Company Name</Text>
       <CardSection>       
@@ -118,11 +127,10 @@ return (
             </View>
       </CardSection>
 
-
       <Text style={styles.textStyle}> Phone No</Text>
       <CardSection>   
-      <Row>
-      <Col sm={9} md={1} lg={1} >
+      <Row size={12}>
+      <Col sm={11} md={9} lg={11} >
       <View style={styles.viewContainerStyle}>
         <Controller control={control} render={({ onChange, onBlur, value })=> (
           <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
@@ -135,11 +143,11 @@ return (
             />
             </View>
       </Col>            
-      <Col sm={2} md={1} lg={1}>
-        {/* <Icon  name="arrow-circle-up" size={30} color="#900" onPress={this.onCopyPhoneToCell.bind(this)} /> */}
-      </Col> 
-      <Col sm={1} md={4} lg={3}>
-            <Icon name="phone"  size={30} color="#228B22" onPress= {()=> onPhonePress('414')}  />
+      {/* <Col sm={1} md={1} lg={1}>
+        <Icon  name="arrow-circle-up" size={30} color="#900"  />
+      </Col>  */}
+      <Col sm={1} md={1} lg={1}>
+            <Icon name="phone"  size={30} color="#228B22" onPress= {()=> onPhonePress( props.route.params.item.phone_no  )}  />
 
       </Col>           
         </Row>                 

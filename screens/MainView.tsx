@@ -44,6 +44,7 @@ const MainView = (props) => {
 <View>
 
 <Button title="EMT/NEMT ?" onPress={() => console.log('something')} />
+
 <Button title="Dentist ?" onPress={() => console.log('something')} />
 <Button title="Urgent Care ?" onPress={() => console.log('something')} />
 <Button title="Labs ?" onPress={() => console.log('something')} />
@@ -53,11 +54,16 @@ const MainView = (props) => {
     type="outline"
   />
 
-
   <Badge value="99+" status="primary" />
 
   <Button
     title="AllRecords (Flat it) "
+    type="outline"
+    onPress={() => navigation.navigate('AllRecords')}
+  />
+
+<Button
+    title="Today"
     type="outline"
     onPress={() => navigation.navigate('AllRecords')}
   />

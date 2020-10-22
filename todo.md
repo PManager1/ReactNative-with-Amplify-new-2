@@ -80,3 +80,7 @@ Hooks form - default valeus
 https://codesandbox.io/s/react-hook-form-get-started-forked-gv881?file=/src/index.js:555-580
 
 
+TODO > in details view.  convert the phone icon into Submit like button 
+
+
+
