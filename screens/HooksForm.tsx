@@ -260,7 +260,7 @@ return (
 
 
 
-      <Text style={styles.textStyle}> Comment CommentScreen</Text>
+      <Text style={styles.textStyle}> Comment </Text>
       <CardSection>        
       <View style={styles.viewContainerStyle}>
         <Controller control={control} render={({ onChange, onBlur, value })=> (
@@ -273,7 +273,31 @@ return (
             defaultValue={props.route.params.item.comment}
             />
             </View>
-      </CardSection>   
+      </CardSection> 
+
+
+
+      <Text style={styles.textStyle}> Comment CommentScreen</Text>
+      <CardSection>   
+      <Row size={12}>
+      <Col sm={11} md={9} lg={11} >
+      <View style={styles.viewContainerStyle}>
+        <Controller control={control} render={({ onChange, onBlur, value })=> (
+          <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
+            value={value}
+            />
+            )}
+            name="comment"
+            // rules={{ required: true }}
+            defaultValue={props.route.params.item.comment}            />
+            </View>
+      </Col>            
+      <Col sm={1} md={1} lg={1}>
+            <Icon name="sticky-note"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('CommentScreen') }  />
+
+      </Col>           
+        </Row>                 
+      </CardSection> 
 
 
       <Text style={styles.textStyle}> Email </Text>
