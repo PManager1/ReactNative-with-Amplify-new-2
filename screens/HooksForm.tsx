@@ -12,7 +12,7 @@ import { createRecord } from '../src/graphql/mutations'
 import { TextInput, Button, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
-export default function HooksForm() {
+export default function HooksForm(props) {
   const { control, handleSubmit, errors } = useForm();
 
 //   const onSubmit = data => console.log(data);
@@ -44,9 +44,8 @@ export default function HooksForm() {
         )}
         name="firstName"
         rules={{ required: true }}
-        defaultValue="1234--first"
+        defaultValue={props.route.params.item.companyName}
       />
-      {errors.firstName && <Text>This is required.</Text>}
 
       <Controller
         control={control}
@@ -62,7 +61,7 @@ export default function HooksForm() {
         </CardSection>  
         )}
         name="lastName"
-        defaultValue=""
+        defaultValue={props.route.params.item.executiveFirstName}
       />
 
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />

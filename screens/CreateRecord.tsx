@@ -11,7 +11,6 @@ import { useForm, Controller } from "react-hook-form";
 export default function CreateRecord() {
   const { control, handleSubmit, errors } = useForm();
 
-//   const onSubmit = data => console.log(data);
     const onSubmit = async (data) => {
         console.log(data);
         const input = {
