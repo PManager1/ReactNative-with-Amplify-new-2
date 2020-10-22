@@ -116,7 +116,7 @@ const MainView = (props) => {
   />
 
 <Button
-    title="Mid Priority (TEST) "
+    title="Mid Priority(TEST)"
     type="outline"
     onPress={() => navigation.navigate('MidPriority')}
   />
@@ -126,6 +126,24 @@ const MainView = (props) => {
     type="outline"
     onPress={() => navigation.navigate('MultiSelector')}
   />
+<Button
+    title="ShowModal"
+    type="outline"
+    onPress={() => navigation.navigate('ShowModal')}
+  />
+
+<Button
+    title="CommentScreen"
+    type="outline"
+    onPress={() => navigation.navigate('CommentScreen')}
+  />
+
+<Button
+    title="ModalDemo"
+    type="outline"
+    onPress={() => navigation.navigate('ModalDemo')}
+  />
+
 
 
 

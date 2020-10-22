@@ -158,8 +158,11 @@ return (
       </CardSection> 
 
 
- <Text style={styles.textStyle}> Status</Text>
-      <CardSection>        
+
+      <Text style={styles.textStyle}> Status T </Text>
+      <CardSection>   
+      <Row size={12}>
+      <Col sm={11} md={9} lg={11} >
       <View style={styles.viewContainerStyle}>
         <Controller control={control} render={({ onChange, onBlur, value })=> (
           <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
@@ -171,7 +174,14 @@ return (
             defaultValue={props.route.params.item.status}
             />
             </View>
-      </CardSection>  
+      </Col>            
+      <Col sm={1} md={1} lg={1}>
+            <Icon name="shield"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('MultiSelector') }  />
+
+      </Col>           
+        </Row>                 
+      </CardSection> 
+
 
 
  <Text style={styles.textStyle}> Direct Cell </Text>
@@ -250,7 +260,7 @@ return (
 
 
 
-      <Text style={styles.textStyle}> Comment</Text>
+      <Text style={styles.textStyle}> Comment CommentScreen</Text>
       <CardSection>        
       <View style={styles.viewContainerStyle}>
         <Controller control={control} render={({ onChange, onBlur, value })=> (

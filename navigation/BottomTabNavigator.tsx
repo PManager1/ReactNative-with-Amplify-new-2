@@ -17,7 +17,9 @@ import CreateRecord from '../screens/CreateRecord';
 import HooksForm from '../screens/HooksForm';
 import Charts from '../screens/Charts';
 import CalendarScreen from '../screens/CalendarScreen';
+import ModalDemo from '../screens/ModalDemo';
 
+import CommentScreen from '../screens/CommentScreen';
 
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
@@ -28,7 +30,7 @@ import AllRecords from '../screens/AllRecords';
 // import LoginScreen from '../screens/LoginScreen';
 import MultiSelector from '../screens/MultiSelector';
 // import DateTimePicker from '../screens/DateTimePicker';
-
+import ShowModal from '../screens/ShowModal';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -86,8 +88,9 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="Charts" component={Charts} />
       <TabOneStack.Screen name="CalendarScreen" component={CalendarScreen} />
       <TabOneStack.Screen name="MultiSelector" component={MultiSelector} />
-      
-      
+      <TabOneStack.Screen name="ShowModal" component={ShowModal} />
+      <TabOneStack.Screen name="ModalDemo" component={ModalDemo} />
+      <TabOneStack.Screen name="CommentScreen" component={CommentScreen} />
     </TabOneStack.Navigator>
   );
 }
