@@ -1,8 +1,8 @@
-// export default function HooksForm(props) {
-
-
 import React, { useState, Component } from 'react';
-import { ListItem, Icon, Avatar } from 'react-native-elements'
+import { ListItem, 
+  // Icon, 
+  Avatar } from 'react-native-elements'
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { View, Text, SafeAreaView, KeyboardAvoidingView,  ScrollView, StyleSheet } from 'react-native'
 import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
@@ -11,9 +11,17 @@ import { API, graphqlOperation, Auth } from 'aws-amplify'
 import { updateRecord } from '../src/graphql/mutations'
 import { TextInput, Button, Alert, Platform } from "react-native";
 import { useForm, Controller } from "react-hook-form";
+import Communications from 'react-native-communications';
 
 export default function HooksForm(props) {
 const { control, handleSubmit, errors } = useForm();
+
+const onPhonePress = () =>{
+  // const { phone } = this.props;
+  // console.log(' pho = ', phone );
+  // console.log("cell no detail"+ phone);
+  Communications.phonecall('919', true);
+}
 
 const onSubmit = async (data) => {
 console.log(data);
@@ -112,7 +120,9 @@ return (
 
 
       <Text style={styles.textStyle}> Phone No</Text>
-      <CardSection>        
+      <CardSection>   
+      <Row>
+      <Col sm={9} md={1} lg={1} >
       <View style={styles.viewContainerStyle}>
         <Controller control={control} render={({ onChange, onBlur, value })=> (
           <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
@@ -124,6 +134,14 @@ return (
             defaultValue={props.route.params.item.phone_no}
             />
             </View>
+      </Col>            
+      <Col sm={2} md={1} lg={1}>
+        {/* <Icon  name="arrow-circle-up" size={30} color="#900" onPress={this.onCopyPhoneToCell.bind(this)} /> */}
+      </Col> 
+      <Col sm={1} md={4} lg={3}>
+            <Icon name="phone"  size={30} color="#228B22"  onPress={onPhonePress} />
+      </Col>           
+        </Row>                 
       </CardSection> 
 
 
