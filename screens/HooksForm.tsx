@@ -16,11 +16,11 @@ import Communications from 'react-native-communications';
 export default function HooksForm(props) {
 const { control, handleSubmit, errors } = useForm();
 
-const onPhonePress = () =>{
+const onPhonePress = (p) =>{
   // const { phone } = this.props;
   // console.log(' pho = ', phone );
   // console.log("cell no detail"+ phone);
-  Communications.phonecall('919', true);
+  Communications.phonecall(p, true);
 }
 
 const onSubmit = async (data) => {
@@ -139,7 +139,8 @@ return (
         {/* <Icon  name="arrow-circle-up" size={30} color="#900" onPress={this.onCopyPhoneToCell.bind(this)} /> */}
       </Col> 
       <Col sm={1} md={4} lg={3}>
-            <Icon name="phone"  size={30} color="#228B22"  onPress={onPhonePress} />
+            <Icon name="phone"  size={30} color="#228B22" onPress= {()=> onPhonePress('414')}  />
+
       </Col>           
         </Row>                 
       </CardSection> 
