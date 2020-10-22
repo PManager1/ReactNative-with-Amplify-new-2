@@ -43,12 +43,9 @@ await API.graphql(graphqlOperation(updateRecord, { input }))
 }
 
 return (
-<SafeAreaView>
 <ScrollView>
-<KeyboardAvoidingView
-      behavior={Platform.OS == "ios" ? "padding" : "height"}
-     
-    >
+<SafeAreaView>
+<KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"}>
   <View>
     <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     <Card>
@@ -278,8 +275,9 @@ return (
 
   </View>
   </KeyboardAvoidingView>
-</ScrollView>
+
 </SafeAreaView>  
+</ScrollView>
 
 );
 }
