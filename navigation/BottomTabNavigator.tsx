@@ -16,7 +16,7 @@ import LowPriority from '../screens/LowPriority';
 import MidPriority from '../screens/MidPriority';
 import CreateRecord from '../screens/CreateRecord';
 import HooksForm from '../screens/HooksForm';
-
+import Charts from '../screens/Charts';
 
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
@@ -82,7 +82,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="AllRecords" component={AllRecords} />
       <TabOneStack.Screen name="DetailView" component={DetailView} />
       <TabOneStack.Screen name="HooksForm" component={HooksForm} />
-      
+      <TabOneStack.Screen name="Charts" component={Charts} />
     </TabOneStack.Navigator>
   );
 }
