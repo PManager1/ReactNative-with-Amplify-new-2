@@ -66,6 +66,12 @@ const MainView = (props) => {
     type="outline"
     onPress={() => navigation.navigate('AllRecords')}
   />
+  
+  <Button
+    title="Hooks-form-ex "
+    type="outline"
+    onPress={() => navigation.navigate('HooksForm')}
+  />
 
 <Button
     title="Create Record "

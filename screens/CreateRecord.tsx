@@ -1,14 +1,10 @@
 import React, { useState, Component } from 'react';
 import { ListItem, Icon, Avatar } from 'react-native-elements'
 import { View, Text, SafeAreaView, ScrollView, StyleSheet  } from 'react-native'
-// import { Button } from 'react-native-elements';
 import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
-
-// new 
 import { API, graphqlOperation, Auth } from 'aws-amplify'
 import { createRecord } from '../src/graphql/mutations'
-
 import { TextInput, Button, Alert } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 
@@ -16,12 +12,8 @@ export default function CreateRecord() {
   const { control, handleSubmit, errors } = useForm();
 
 //   const onSubmit = data => console.log(data);
-
-    const    onSubmit = async (data) => {
-
+    const onSubmit = async (data) => {
         console.log(data);
-        // event.preventDefault()
-
         const input = {
              companyName: data.firstName,
              executiveFirstName: data.lastName,
@@ -29,12 +21,11 @@ export default function CreateRecord() {
         }
         console.log(input);
         await API.graphql(graphqlOperation(createRecord, { input }))
-        // this.setState({ companyName: "", executiveFirstName: ""})
    }      
 
   return (
-    <View>
-        
+<ScrollView>
+    <View>               
       <Controller
         control={control}
         render={({ onChange, onBlur, value }) => (
@@ -49,7 +40,7 @@ export default function CreateRecord() {
         )}
         name="firstName"
         rules={{ required: true }}
-        defaultValue=""
+        defaultValue="1234--first"
       />
       {errors.firstName && <Text>This is required.</Text>}
 
@@ -72,6 +63,8 @@ export default function CreateRecord() {
 
       <Button title="Submit" onPress={handleSubmit(onSubmit)} />
     </View>
+</ScrollView>
+
   );
 }
 
