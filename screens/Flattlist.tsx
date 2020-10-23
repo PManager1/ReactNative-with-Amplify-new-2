@@ -3,6 +3,7 @@
     import {
       Image,
       StyleSheet,
+      TouchableOpacity,
       Text,
       View,
       FlatList, //Replace ListView with FlatList
@@ -24,6 +25,10 @@
         };
       }
       
+      onPress (){
+          console.log('onPress clicekd');
+      }
+
       _fetchData(callback) {
         const params = this.state._dataAfter !== ''
           ? `&after=${this.state._dataAfter}`
@@ -71,6 +76,7 @@
                data={this.state._data} //Remove this reference to dataSource
                renderItem={({item: rowData}) => { //Replaces renderRow={rowData => { 
                 return (
+                <TouchableOpacity onPress={this.onPress.bind(this)}>  
                   <View style={styles.listItem}>
                     <View style={styles.imageWrapper}>
                       <Image
@@ -94,6 +100,7 @@
                       </Text>
                     </View>
                   </View>
+                  </TouchableOpacity>
                 );
               }}
               onEndReached={() =>
