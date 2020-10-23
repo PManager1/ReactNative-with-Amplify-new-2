@@ -139,6 +139,12 @@ const MainView = (props) => {
   />
 
 <Button
+    title="Flattlist"
+    type="outline"
+    onPress={() => navigation.navigate('Flattlist')}
+  />
+
+<Button
     title="ModalDemo"
     type="outline"
     onPress={() => navigation.navigate('ModalDemo')}

@@ -31,6 +31,8 @@ import AllRecords from '../screens/AllRecords';
 import MultiSelector from '../screens/MultiSelector';
 // import DateTimePicker from '../screens/DateTimePicker';
 import ShowModal from '../screens/ShowModal';
+import Flattlist from '../screens/Flattlist';
+
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -91,6 +93,8 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="ShowModal" component={ShowModal} />
       <TabOneStack.Screen name="ModalDemo" component={ModalDemo} />
       <TabOneStack.Screen name="CommentScreen" component={CommentScreen} />
+      <TabOneStack.Screen name="Flattlist" component={Flattlist} />
+      
     </TabOneStack.Navigator>
   );
 }
