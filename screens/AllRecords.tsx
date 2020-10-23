@@ -143,11 +143,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    // backgroundColor: '#ecf0f1',
     backgroundColor: '#F5F5F5',
-
-    // alignItems: 'center',
-    //     justifyContent: 'center',
   },
   item: {
     // padding: 20,

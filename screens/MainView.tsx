@@ -7,6 +7,7 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import {
   View, Text,
   FlatList,
+  SafeAreaView,
   ScrollView,
   Image,
   // ListItem,
@@ -17,33 +18,79 @@ import {
 
 import CheckBox from '@react-native-community/checkbox';
 
-import { Column as Col, Row } from 'react-native-flexbox-grid';
-import { Card, CardSection, Input } from '../components/common';
-// import Communications from 'react-native-communications';
-// import { Checkbox } from 'react-native-paper';
 
-const item = {
-  id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
-  title: "First Item-1",
-}; 
+const DATA = [
+  {
+    id: 'bd7acbea-c1b1-456c2-aed5-3ad53abb28ba',
+    title: 'All Records',
+    linkscreen: 'AllRecords'
+  },
+  {
+    id: '3ac68afc-c605-4238d3-a4f8-fbd91aa97f63',
+    title: 'Today',
+  },
+  {
+    id: '58694a0f-3da1-4731f-bd96-145571e29d72',
+    title: 'Flatlist',
+  },
+  {
+    id: '58694a0f-3da1-4734631f-bd96-145571e29d72',
+    title: 'Calendar',
+  },
+  {
+    id: '58694a0f-3da1-475771f-bd96-145571e29d72',
+    title: 'Charts',
+  },
+  {
+    id: '58694a0f-3da1-471789f-bd96-145571e29d72',
+    title: 'Hooks Form ex ',
+  },
+  {
+    id: '58694a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'Create Record',
+  },
+];
+
+
+const Item = ({ item, title, linkscreen, id, onPress, style }) => (
+  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+    <View style={styles.listItem}>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.subtitle}>linkscreen</Text>
+
+      </View>
+    </View>
+  </TouchableOpacity>
+);
 
 const MainView = (props) => {
   // console.log('23- inside MainView ListItem=', ListItem.Content);
   console.log('MainView - props =', props); 
   const { navigation } = props;
 
-  // const [isSelectedE, setSelectionE] = useState(false);
-  // const [isSelectedD, setSelectionD] = useState(false);
-  // const [isSelectedC, setSelectionC] = useState(false);
-  // const [isSelectedU, setSelectionU] = useState(false);
-  
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
-  return (<>
-  <ScrollView style={styles.sContainer}>
+  const renderItem = ({ item }) => (
+    <Item title={item.title} />
+  );
+
+
+return (<>
+  
+<ScrollView style={styles.sContainer}>
+  <View>
+  <SafeAreaView style={styles.container}>
+      <FlatList
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={item => item.id}
+      />
+    </SafeAreaView>
+  </View>
+
 
 <View>
-
 <Button title="EMT/NEMT ?" onPress={() => console.log('something')} />
 
 <Button title="Dentist ?" onPress={() => console.log('something')} />
@@ -193,9 +240,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
+    // flex: 1,
+    // alignItems: "center",
+    // justifyContent: "center",
+
     flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
+    // marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: '#F5F5F5',
   },
   checkboxInput: {
     flexDirection: "row",
@@ -207,5 +258,32 @@ const styles = StyleSheet.create({
   testDiv:{
     width: '100%', 
     backgroundColor: '#f7ddbb',
-  }
+  },
+
+  //New
+
+  listItem: {
+    flex: 1,
+    height: 75,
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#d6d7da',
+    padding: 6,
+  },
+  imageWrapper: {
+    padding: 5,
+  },
+  title: {
+    fontSize: 20,
+    textAlign: 'left',
+    margin: 6,
+    marginLeft: 77,
+  },
+  subtitle: {
+    fontSize: 12,
+    textAlign: 'left',
+    margin: 6,
+    // marginTop: 30,
+    marginLeft: 80,
+  },
 });
