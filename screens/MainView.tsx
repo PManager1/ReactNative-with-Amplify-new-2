@@ -8,6 +8,7 @@ import {
   View, Text,
   FlatList,
   ScrollView,
+  Image,
   // ListItem,
   StyleSheet,
   ActivityIndicator,  
@@ -55,6 +56,12 @@ const MainView = (props) => {
     title="AllRecords (Flat it) "
     type="outline"
     onPress={() => navigation.navigate('AllRecords')}
+  />
+
+<Button
+    title="Flattlist"
+    type="outline"
+    onPress={() => navigation.navigate('Flattlist')}
   />
 
 <Button
@@ -136,12 +143,6 @@ const MainView = (props) => {
     title="CommentScreen"
     type="outline"
     onPress={() => navigation.navigate('CommentScreen')}
-  />
-
-<Button
-    title="Flattlist"
-    type="outline"
-    onPress={() => navigation.navigate('Flattlist')}
   />
 
 <Button

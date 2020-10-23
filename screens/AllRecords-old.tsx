@@ -96,10 +96,8 @@ class AllRecords extends React.Component {
 
     const Item = ({ item, onPress, style }) => (
       <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-        <View style={styles.listItem}>
         <Text style={styles.title}>{item.companyName}</Text>
-        <Text style={styles.subtitle}>{item.executiveFirstName}</Text>
-        </View>
+        <Text style={styles.exname}>{item.executiveFirstName}</Text>
       </TouchableOpacity>
     );
 
@@ -141,34 +139,15 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
-    // backgroundColor: '#ecf0f1',
-    backgroundColor: '#F5F5F5',
   },
   item: {
-    // padding: 20,
-    // marginVertical: 8,
-    // marginHorizontal: 16,
-    // backgroundColor: '#f9c2ff'
-  },
-  listItem: {
-    flex: 1,
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    borderBottomColor: '#d6d7da',
-    padding: 6,
-  },
-  imageWrapper: {
-    padding: 5,
+    padding: 20,
+    marginVertical: 8,
+    marginHorizontal: 16,
+    backgroundColor: '#f9c2ff'
   },
   title: {
-    fontSize: 20,
-    textAlign: 'left',
-    margin: 6,
-  },
-  subtitle: {
-    fontSize: 12,
-    textAlign: 'left',
-    margin: 6,
+    fontSize: 32,
   },
   exname: {
     fontSize: 16,
