@@ -28,53 +28,91 @@ const DATA = [
   {
     id: '3ac68afc-c605-4238d3-a4f8-fbd91aa97f63',
     title: 'Today',
+    linkscreen: 'AllRecords',
   },
   {
     id: '58694a0f-3da1-4731f-bd96-145571e29d72',
     title: 'Flatlist',
+    linkscreen: 'Flattlist'
   },
   {
     id: '58694a0f-3da1-4734631f-bd96-145571e29d72',
     title: 'Calendar',
+    linkscreen: 'CalendarScreen',
   },
   {
     id: '58694a0f-3da1-475771f-bd96-145571e29d72',
     title: 'Charts',
+    linkscreen: 'CalendarScreen',
   },
   {
-    id: '58694a0f-3da1-471789f-bd96-145571e29d72',
+    id: '586902394a0f-3da1-471789f-bd96-145571e29d72',
     title: 'Hooks Form ex ',
+    linkscreen: 'HooksForm',
   },
   {
-    id: '58694a0f-3da1-475431f-bd96-145571e29d72',
+    id: '5568694a0f-3da1-475431f-bd96-145571e29d72',
     title: 'Create Record',
+    linkscreen: 'CreateRecord',
+  },  
+  // new 
+  {
+    id: '58694a120f-3da1-475431f-bd96-145571e29d72',
+    title: 'Deails View',
+    linkscreen: 'CreateRecord',
+  },
+  {
+    id: '5869894a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'Login',
+    linkscreen: 'CreateRecord',
+  },
+  {
+    id: '5856694a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'Red Priority',
+    linkscreen: 'CreateRecord',
+  },
+  {
+    id: '5869784a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'High Priority- calendar ',
+    linkscreen: 'HighPriority',
+  },
+  {
+    id: '58694a0f-3da1-47785431f-bd96-145571e29d72',
+    title: 'Mid Priority',
+    linkscreen: 'MidPriority',
+  },
+  {
+    id: '58694a0f-3da15-475431f-bd96-145571e29d72',
+    title: 'Multi Selector',
+    linkscreen: 'MultiSelector',
+  },
+  {
+    id: '5869454a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'Show Modal ',
+    linkscreen: 'ShowModal',
+  },
+  {
+    id: '586945a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'Comment Screen',
+    linkscreen: 'CommentScreen',
+  },
+  {
+    id: '5869234a0f-3da1-475431f-bd96-145571e29d72',
+    title: 'Model Demo',
+    linkscreen: 'ModalDemo',
+  },
+  {
+    id: '5869234a0f-3d5a1-475431f-bd96-145571e29d72',
+    title: 'Follow up ',
+    linkscreen: 'CreateRecord',
+  },
+  {
+    id: '5869234a0f-3234d90a1-475431f-bd96-145571e29d72',
+    title: 'Call Back',
+    linkscreen: 'CreateRecord',
   },
 ];
 
-const handleSelect = (item) => {
-  console.log('73-- handleSelect clicked  - item=', item.linkscreen); 
-  const link = item.linkscreen;
-      navigation.navigate(link);
-  // onPress={() => navigation.navigate('Flattlist')}
-}
-
-const renderItem = ({ item }) => (
-  <Item title={item.title} linkscreen={item.linkscreen} 
-  onPress={() => handleSelect(item) }
-  />
-);
-
-const Item = ({ item, title, linkscreen, id, onPress, style }) => (
-  <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-    <View style={styles.listItem}>
-      <View style={{ flex: 1 }}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>{linkscreen}</Text>
-
-      </View>
-    </View>
-  </TouchableOpacity>
-);
 
 const MainView = (props) => {
   // console.log('23- inside MainView ListItem=', ListItem.Content);
@@ -82,6 +120,34 @@ const MainView = (props) => {
   const { navigation } = props;
 
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
+
+
+  const handleSelect = (item) => {
+    console.log('73-- handleSelect clicked  - item=', item.linkscreen); 
+    const link = item.linkscreen;
+        props.navigation.navigate(link);
+    // onPress={() => navigation.navigate('Flattlist')}
+  }
+  
+  const renderItem = ({ item }) => (
+    <Item title={item.title} linkscreen={item.linkscreen} 
+    onPress={() => handleSelect(item) }
+    />
+  );
+  
+  const Item = ({ item, title, linkscreen, id, onPress, style }) => (
+    <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
+      <View style={styles.listItem}>
+        <View style={{ flex: 1 }}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.subtitle}>{linkscreen}</Text>
+  
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
+
+  
 
   
 return (<>
@@ -92,6 +158,7 @@ return (<>
       <FlatList
         data={DATA}
         renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
         keyExtractor={item => item.id}
       />
     </SafeAreaView>
@@ -106,118 +173,6 @@ return (<>
 <Button title="Labs ?" onPress={() => console.log('something')} />
 
   <Badge value="99+" status="primary" />
-
-  <Button
-    title="AllRecords (Flat it) "
-    type="outline"
-    onPress={() => navigation.navigate('AllRecords')}
-  />
-
-<Button
-    title="Flattlist"
-    type="outline"
-    onPress={() => navigation.navigate('Flattlist')}
-  />
-
-<Button
-    title="Today"
-    type="outline"
-    onPress={() => navigation.navigate('AllRecords')}
-  />
-
-<Button
-    title="Calendar"
-    type="outline"
-    onPress={() => navigation.navigate('CalendarScreen')}
-  />
-
-
-<Button
-    title="Charts"
-    type="outline"
-    onPress={() => navigation.navigate('Charts')}
-  />
-
-  
-  <Button
-    title="Hooks-form-ex "
-    type="outline"
-    onPress={() => navigation.navigate('HooksForm')}
-  />
-
-<Button
-    title="Create Record "
-    type="outline"
-    onPress={() => navigation.navigate('CreateRecord')}
-  />
-
-<Button
-    title="DetailsView "
-    type="outline"
-    onPress={() => navigation.navigate('DetailView', {item})}
-  />
-
-
-
-<Button
-    title="Login "
-    type="outline"
-    onPress={() => navigation.navigate('LoginScreen')}
-  />
-
-<Button
-    title="Red Priority "
-    type="outline"
-    onPress={() => navigation.navigate('HighPriority')}
-  />
-
-<Button
-    title="High Priority "
-    type="outline"
-    onPress={() => navigation.navigate('HighPriority')}
-  />
-
-<Button
-    title="Mid Priority(TEST)"
-    type="outline"
-    onPress={() => navigation.navigate('MidPriority')}
-  />
-
-<Button
-    title="Multi Selector "
-    type="outline"
-    onPress={() => navigation.navigate('MultiSelector')}
-  />
-<Button
-    title="ShowModal"
-    type="outline"
-    onPress={() => navigation.navigate('ShowModal')}
-  />
-
-<Button
-    title="CommentScreen"
-    type="outline"
-    onPress={() => navigation.navigate('CommentScreen')}
-  />
-
-<Button
-    title="ModalDemo"
-    type="outline"
-    onPress={() => navigation.navigate('ModalDemo')}
-  />
-
-
-
-
-<Button
-    title="Followup "
-    type="outline"
-  />
-
-<Button
-    title="Call Back "
-    type="outline"
-  />
 
 </View>
 
