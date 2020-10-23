@@ -166,11 +166,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'left',
     margin: 6,
+    marginLeft: 77,
   },
   subtitle: {
     fontSize: 12,
     textAlign: 'left',
     margin: 6,
+    marginTop: 30,
   },
   exname: {
     fontSize: 16,
