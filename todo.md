@@ -88,4 +88,20 @@ Charts - https://www.npmjs.com/package/react-native-chart-kit
 All Modals - https://codesandbox.io/s/kxmx8w08jv
 
 
+> pass data to Comment screen 
+
+> TODAY -  https://github.com/gitim/react-native-sortable-list
+> searchbar - https://github.com/WrathChaos/react-native-dynamic-search-bar
+https://medium.com/timeless/react-native-search-72d1f7c081e1
+
+
+https://snack.expo.io/@eldorplus/example-of-search-bar-in-react-native
+
+
+
+> Fold view - https://github.com/jmurzy/react-native-foldview
+
+> Toaster on success
+> flat list with number of red priority
+> flat list on the main screen 
 
