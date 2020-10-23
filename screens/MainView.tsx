@@ -50,9 +50,18 @@ const DATA = [
     title: 'Create Record',
   },
 ];
-s
+
+const handleSelect = (item) => {
+  console.log('73-- handleSelect clicked  - item=', item.linkscreen); 
+  const link = item.linkscreen;
+      navigation.navigate(link);
+  // onPress={() => navigation.navigate('Flattlist')}
+}
+
 const renderItem = ({ item }) => (
-  <Item title={item.title} linkscreen={item.linkscreen} />
+  <Item title={item.title} linkscreen={item.linkscreen} 
+  onPress={() => handleSelect(item) }
+  />
 );
 
 const Item = ({ item, title, linkscreen, id, onPress, style }) => (
