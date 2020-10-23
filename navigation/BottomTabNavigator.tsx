@@ -78,7 +78,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen
         name="TabOneScreen"
         component={MainView}
-        options={{ headerTitle: 'Tab One Title' }}
+        options={{ headerTitle: 'All Inbox' }}
       />
       
       <TabOneStack.Screen name="HighPriority" component={HighPriority} />
