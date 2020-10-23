@@ -105,3 +105,12 @@ https://snack.expo.io/@eldorplus/example-of-search-bar-in-react-native
 > flat list with number of red priority
 > flat list on the main screen 
 
+> update the object info with one single object 
+so it keep updaing the information on the go. 
+https://stackoverflow.com/questions/53165945/what-is-usestate-in-react
+
+https://daveceddia.com/usestate-hook-examples/
+
+
+
+
