@@ -9,6 +9,7 @@ import {
   FlatList,
   SafeAreaView,
   ScrollView,
+  Platform,
   Image,
   // ListItem,
   StyleSheet,
@@ -224,7 +225,6 @@ const styles = StyleSheet.create({
   },
 
   //New
-
   listItem: {
     flex: 1,
     height: 75,
@@ -232,6 +232,28 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#d6d7da',
     padding: 6,
+
+    marginTop: 11,
+    width: '100%',
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 3,
+    paddingBottom: 3,
+
+    backgroundColor: 'white',
+    borderWidth: Platform.OS === 'ios' ? .5 : 0,
+    borderRadius: 2,
+    borderColor:  Platform.OS === 'ios' ? 'rgb(225, 225, 225)' : 'rgba(0,0,0,.0)',
+
+    // shadow
+    // shadowColor: "#000",
+    // shadowOffset: {
+    //     width: 0,
+    //     height: 1,
+    // },
+    // shadowOpacity: 0.15,
+    // shadowRadius: 2.5,
+    // elevation: 2,
   },
   imageWrapper: {
     padding: 5,
