@@ -85,10 +85,12 @@
                     </View>
                     <View style={{ flex: 1 }}>
                       <Text style={styles.title}>
-                        {rowData.data.display_name}
+                        {/* {rowData.data.display_name} */}
+                        Display name
                       </Text>
                       <Text style={styles.subtitle}>
-                        {rowData.data.public_description}
+                        {/* {rowData.data.public_description} */}
+                        Description
                       </Text>
                     </View>
                   </View>
