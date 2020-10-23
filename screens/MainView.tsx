@@ -23,7 +23,7 @@ const DATA = [
   {
     id: 'bd7acbea-c1b1-456c2-aed5-3ad53abb28ba',
     title: 'All Records',
-    linkscreen: 'AllRecords'
+    linkscreen: 'AllRecords',
   },
   {
     id: '3ac68afc-c605-4238d3-a4f8-fbd91aa97f63',
@@ -50,14 +50,17 @@ const DATA = [
     title: 'Create Record',
   },
 ];
-
+s
+const renderItem = ({ item }) => (
+  <Item title={item.title} linkscreen={item.linkscreen} />
+);
 
 const Item = ({ item, title, linkscreen, id, onPress, style }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
     <View style={styles.listItem}>
       <View style={{ flex: 1 }}>
         <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subtitle}>linkscreen</Text>
+        <Text style={styles.subtitle}>{linkscreen}</Text>
 
       </View>
     </View>
@@ -71,11 +74,7 @@ const MainView = (props) => {
 
   const [toggleCheckBox, setToggleCheckBox] = useState(false)
 
-  const renderItem = ({ item }) => (
-    <Item title={item.title} />
-  );
-
-
+  
 return (<>
   
 <ScrollView style={styles.sContainer}>
