@@ -36,6 +36,14 @@ const onCalendarPress = (p) =>{
   Communications.phonecall(p, true);
 }
 
+const handleDelete = () =>{
+  console.log(' handleDelete called'); 
+}
+
+const onDelete = (data) =>{
+  console.log(' delete called'); 
+}
+
 const onSubmit = async (data) => {
 console.log(data);
 const input = {
@@ -68,8 +76,6 @@ return (
 <SafeAreaView>
 <KeyboardAvoidingView behavior={Platform.OS == "ios" ? "padding" : "height"}>
   <View>
-    {/* <Button title="Submit" onPress={handleSubmit(onSubmit)} /> */}
-    
     <Button title="Submit" onPress={handleSubmit(onSubmit)} />
 
     <Card>
@@ -365,12 +371,12 @@ return (
 
     </Card>
 
+    <Button title="Delete-Not workin" onPress={handleDelete(onDelete)} />
+
   </View>
   </KeyboardAvoidingView>
-
 </SafeAreaView>  
 </ScrollView>
-
 );
 }
 
