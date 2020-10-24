@@ -20,6 +20,8 @@ import CalendarScreen from '../screens/CalendarScreen';
 import ModalDemo from '../screens/ModalDemo';
 
 import CommentScreen from '../screens/CommentScreen';
+import DialogScreen from '../screens/DialogScreen';
+
 
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
@@ -94,6 +96,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="ModalDemo" component={ModalDemo} />
       <TabOneStack.Screen name="CommentScreen" component={CommentScreen} />
       <TabOneStack.Screen name="Flattlist" component={Flattlist} />
+
       
     </TabOneStack.Navigator>
   );

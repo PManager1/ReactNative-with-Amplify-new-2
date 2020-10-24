@@ -102,11 +102,11 @@ const DATA = [
     title: 'Model Demo',
     linkscreen: 'ModalDemo',
   },
-  {
-    id: '5869234a0f-3d5a1-475431f-bd96-145571e29d72',
-    title: 'Dialog Screen',
-    linkscreen: 'DialogScreen',
-  },
+  // {
+  //   id: '5869234a0f-3d5a1-475431f-bd96-145571e29d72',
+  //   title: 'Dialog Screen',
+  //   linkscreen: 'DialogScreen',
+  // },
   {
     id: '5869234a0f-3234d90a1-475431f-bd96-145571e29d72',
     title: 'Call Back',
