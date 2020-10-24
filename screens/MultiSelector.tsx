@@ -1,3 +1,4 @@
+import { connect } from 'react-redux';
 import React, {
   Component
 } from 'react';
@@ -7,10 +8,20 @@ import {
   ScrollView,
   Text
 } from 'react-native';
+
 import CustomMultiPicker from "react-native-multiple-select-list";
+
+import { Card, Input, CardSection, Button, Confirm } from '../components/common';
+
+
 import Icon from 'react-native-vector-icons/Ionicons';
 
-export default class MultiSelector extends Component {
+
+
+class MultiSelector extends Component {
+
+  // const ChatScreen = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+  //   const { inputStyle, labelStyle, containerStyle } = styles;
 
 
   constructor(props){
@@ -83,31 +94,40 @@ export default class MultiSelector extends Component {
           ];
 
 
+      // const { params } = this.props.navigation.state;
       console.log('23- MultiSelector  =', this.props );
       return (
         <ScrollView>
-
         <CustomMultiPicker
-            options={userList}
-            search={true} // should show search bar?
-            multiple={true} //
-            placeholder={"Search"}
-            placeholderTextColor={'#757575'}
-            returnValue={"label"} // label or value
-            callback={(res)=>{ console.log(res) }} // callback, array of selected items
-            rowBackgroundColor={"#eee"}
-            rowHeight={40}
-            rowRadius={5}
-            searchIconName="ios-checkmark"
-            searchIconColor="red"
-            searchIconSize={30}
-            iconColor={"#00a2dd"}
-            iconSize={30}
-            selectedIconName={"ios-checkmark-circle-outline"}
-            unselectedIconName={"ios-radio-button-off-outline"}
-            scrollViewHeight={130}
-            selected={["Tom", "Christin"]} // list of options which are selected by default
-          />
+      options={userList}
+      search={true} // should show search bar?
+      multiple={true} //
+      placeholder={"Search-2"}
+      placeholderTextColor={'#757575'}
+      returnValue={"label"} // label or value
+      callback={(res)=>{
+
+        console.log('86-  onclick =', res)
+
+
+        for(let i=0;i<=res.length;i++){
+           if (res.indexOf(res[i]) !== -1) {
+               console.log(res[i]);
+              //  this.props.propertyUpdatePriority({ _id: this.props._id, prop: res[i], value: true })
+           }
+         }
+
+      }} // callback, array of selected items
+      rowBackgroundColor={"#eee"}
+      rowHeight={40}
+      rowRadius={5}
+      iconColor={"#00a2dd"}
+      iconSize={30}
+      selectedIconName={"ios-checkmark-circle-outline"}
+      unselectedIconName={"ios-radio-button-off-outline"}
+      scrollViewHeight={530}
+      selected={[]} // list of options which are selected by default
+    />
     </ScrollView>
       );
     }
@@ -134,24 +154,6 @@ export default class MultiSelector extends Component {
 
 
 
+export default MultiSelector; 
 
 
-
-
-// export default ChatScreen;
-
-
-
-
-
-
-
-
-
-
-
-
-//
-
-    
-    

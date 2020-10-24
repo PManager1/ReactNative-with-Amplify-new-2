@@ -140,7 +140,7 @@ const MainView = (props) => {
     <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
       <View style={styles.listItem}>
         <View style={{ flex: 1 }}>
-          <Text style={styles.title}>{title}</Text>
+          <Text style={styles.title}>{title}                                                           </Text>
           <Text style={styles.subtitle}>{linkscreen}</Text>
   
         </View>
