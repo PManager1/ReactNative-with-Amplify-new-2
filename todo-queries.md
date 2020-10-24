@@ -65,6 +65,42 @@ mutation{
 }
 
 
+mutation create{
+  createRecord(input :{
+    companyName: "the company"
+    comment:"the comment"
+  }){
+    id
+    companyName
+  }
+}
+
+query ListRecords{
+  listRecords {
+    items {
+      id
+      companyName
+    }
+    nextToken
+  }
+}
+
+filtered list :  https://youtu.be/SxwMHqRUrBk?t=161
+
+query ListRecords{
+  listRecords (filter: {
+    companyName: {
+      contains: "company"
+    }
+  }) {
+    items {
+      id
+      companyName
+    }
+    nextToken
+  }
+}
+
 
 
 
@@ -80,21 +116,6 @@ query ListRecords($filter: ModelRecordFilterInput, $limit: Int, $nextToken: Stri
     nextToken
   }
 }
-
-
-query ListRecords($filter: ModelRecordFilterInput, $limit: Int, $nextToken: String) {
-  listRecords(filter: $filter, limit: $limit, nextToken: $nextToken) {
-    items {
-      id
-      companyName
-      business_size
-      base
-      updatedAt
-    }
-    nextToken
-  }
-}
-
 
 
 
