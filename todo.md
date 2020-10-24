@@ -117,3 +117,7 @@ All Records pull down
 https://www.skcript.com/svr/whats-react-natives-new-flatlist/
 
 
+Priorities Array types - 
+https://graphql-ruby.org/type_definitions/lists.html
+
+

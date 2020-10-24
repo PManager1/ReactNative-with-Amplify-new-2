@@ -107,8 +107,8 @@ class MultiSelector extends Component {
       returnValue={"label"} // label or value
       callback={(res)=>{
 
-        console.log('86-  onclick =', res)
-
+        console.log('86-  onclick =', res); 
+      
 
         for(let i=0;i<=res.length;i++){
            if (res.indexOf(res[i]) !== -1) {
