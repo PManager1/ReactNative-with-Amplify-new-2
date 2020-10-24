@@ -47,6 +47,14 @@ const onPhonePress = (p) =>{
       props.navigation.navigate('CalendarScreen', props.route.params.item.id );
   }
 
+  const formatDate = (value) => {
+    if (value){
+      return value.slice(0,10);
+    }
+
+    return '';
+  }
+
 const onSubmit = async (data) => {
       // console.log(data);
       const input = {
@@ -237,8 +245,9 @@ return (
             />
             )}
             name="followupDate"
-            // rules={{ required: true }}
-            defaultValue={props.route.params.item.followupDate}
+            // rules={{ required: true }}   value={this.formatDate(this.props.FollowUp_Call_Date)}
+            // defaultValue={props.route.params.item.followupDate}
+            defaultValue={ formatDate(props.route.params.item.followupDate)}
             />
             </View>
       </Col>            
