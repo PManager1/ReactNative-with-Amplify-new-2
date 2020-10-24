@@ -10,7 +10,7 @@ type Record @model{
    followupDate: String
    comment: String
    email: String
-   priorities: String
+   priorities: [String]
    status: String
    phone_no: String
    cell_phone: String
@@ -22,6 +22,7 @@ type Record @model{
    ownerStatus: String
    OwnerId: String
    OwnerUsername: String
+   Linkedin: String
    base: String
 }
 

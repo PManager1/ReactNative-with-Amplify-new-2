@@ -13,6 +13,7 @@ import { Calendar } from 'react-native-calendars';
 import { API, graphqlOperation, Auth } from 'aws-amplify'
 import { updateRecord } from '../src/graphql/mutations'
 
+
 class CalendarScreen extends Component {
 
   constructor(props) {
@@ -20,7 +21,10 @@ class CalendarScreen extends Component {
       this.state = {};
       this.onDayPress = this.onDayPress.bind(this);
     }
+
+
   formatDate() {
+    console.log('27--formatDate called');
     if (this.props.FollowUp_Call_Date){
       return this.props.FollowUp_Call_Date.slice(0,10);
     }
@@ -28,12 +32,34 @@ class CalendarScreen extends Component {
     return '';
   }
 
+  handleCalendarSave = (props) => {
+    console.log('36--handleCalendarSave  - props=', props); 
+      // props.navigation.navigate('CalendarScreen', props.route.params.item.id );
+  }
+
+onSave = async (data) => {
+  console.log(' 41--onSave--props =', this.props); 
+  console.log(' 42--onSave--data =', data); 
+  
+    const input = {
+                    id: this.props.route.params,
+                    followupDate: data,
+                  }
+      console.log(input);
+      await API.graphql(graphqlOperation(updateRecord, { input }))
+}
+
+
   static navigationOptions = ({ navigation }) => ({
       title: `${navigation.state.params.user}`,
   });
 
-  render() {
-    console.log('40 - CalendarScreen  this.props =', this.props );
+  render(props) {
+    console.log('56- CalendarScreen  this.props =', this.props );
+
+    const id = this.props.route.params; 
+    console.log(' 59- id=', id );
+
     return (
       <ScrollView style={styles.container}>
         <Text style={styles.text}>Pick your Follow Up date</Text>
@@ -51,7 +77,8 @@ class CalendarScreen extends Component {
             label="FollowUp"
             placeholder="comments"
             value={this.formatDate()}
-            onChangeText={text => this.props.propertyUpdate({ prop: 'FollowUp_Call_Date', value: text })}
+            // onChangeText={text => this.props.propertyUpdate({ prop: 'FollowUp_Call_Date', value: text })}
+            // onChangeText={text => this.props.onSave({ prop: 'FollowUp_Call_Date', value: text })}
             />
         </CardSection>
       </Card>
@@ -61,17 +88,22 @@ class CalendarScreen extends Component {
   }
 
   onDayPress(day) {
-    console.log('74-  date selected = ', moment.utc(day.dateString));
+    console.log('92-  date selected = ', moment.utc(day.dateString));
     console.log(moment.utc(day));
     // {text => this.props.propertyUpdate({ prop: 'FollowUp_Call_Date', value: text })}
     // {day => this.props.propertyUpdate({ prop: 'FollowUp_Call_Date', value: day })}
     this.setState({
       selected: day.dateString
     });
-    console.log('80-  date day.dateString = ', moment.utc(day));
-    console.log('81-  this.props  = ', this.props);
-    console.log('85-  this.props  = ', this.props);
+    // console.log('99-  date day.dateString = ', moment.utc(day));
+    // console.log(' 991 - day.dateString =', moment.utc(day).valueOf() );
+    // console.log(' 992 - day.dateString =', moment(day).valueOf() );
+    console.log(' 993 - day.dateString =', moment.utc(day).format() );
+    
+    
+    // call Update function
 
+    this.onSave(  moment.utc(day).format()  ); 
     // this.props.propertyUpdate({ prop: 'FollowUp_Call_Date', value: moment.utc(day.dateString).format() });
   }
 }

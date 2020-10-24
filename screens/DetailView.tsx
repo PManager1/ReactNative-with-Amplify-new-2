@@ -4,8 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { View, Text, SafeAreaView, KeyboardAvoidingView,  ScrollView, StyleSheet } from 'react-native'
 import { Card, CardSection, Input } from '../components/common';
 import { Column as Col, Row } from 'react-native-flexbox-grid'
-import { API, graphqlOperation, Auth } from 'aws-amplify'
 
+import { API, graphqlOperation, Auth } from 'aws-amplify'
 import { updateRecord } from '../src/graphql/mutations'
 import { TextInput, 
   // Button,
@@ -42,9 +42,13 @@ const onPhonePress = (p) =>{
     console.log(' delete called'); 
   }
 
-const onSubmit = async (data) => {
-      console.log(data);
+  const handleCalendarSelect = (props) => {
+    console.log('46--handleCalendarSelect  - props=', props); 
+      props.navigation.navigate('CalendarScreen', props.route.params.item.id );
+  }
 
+const onSubmit = async (data) => {
+      // console.log(data);
       const input = {
                       id: props.route.params.item.id,
                       companyName: data.companyName,
@@ -86,7 +90,7 @@ return (
             value={value}
             />
             )}
-            name="companyName"
+            name="companyName" 
             // rules={{ required: true }}
             defaultValue={props.route.params.item.companyName}
             />
@@ -238,8 +242,8 @@ return (
             />
             </View>
       </Col>            
-      <Col sm={1} md={1} lg={1}>
-            <Icon name="calendar"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('CalendarScreen',   123   ) }  />
+      <Col sm={1} md={1} lg={1}> 
+            <Icon name="calendar"  size={30} color="#FFB6C1" onPress={() => handleCalendarSelect(props) } />
 
       </Col>           
         </Row>                 

@@ -35,8 +35,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-business2-dev-114004-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apibusiness2"
       },
-      "lastPushTimeStamp": "2020-10-19T18:50:53.151Z",
-      "lastPushDirHash": "/K6BIxLzHW6NILv46c07HftI26E="
+      "lastPushTimeStamp": "2020-10-24T02:56:42.763Z",
+      "lastPushDirHash": "z9MDSGIXoblVG0jZY/HHwYKS2f8="
     }
   }
 }
