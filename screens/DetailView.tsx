@@ -224,24 +224,6 @@ return (
 
 
       <Text style={styles.textStyle}> Follow up Date</Text>
-      <CardSection>        
-      <View style={styles.viewContainerStyle}>
-        <Controller control={control} render={({ onChange, onBlur, value })=> (
-          <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
-            value={value}
-            />
-            )}
-            name="followupDate"
-            // rules={{ required: true }}
-            defaultValue={props.route.params.item.followupDate}
-            />
-            </View>
-            {/* navigate to calendar  */}
-
-      </CardSection>   
-
-
-      <Text style={styles.textStyle}> Follow up Date</Text>
       <CardSection>   
       <Row size={12}>
       <Col sm={11} md={9} lg={11} >
