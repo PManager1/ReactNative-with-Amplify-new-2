@@ -22,7 +22,6 @@ class CalendarScreen extends Component {
       this.onDayPress = this.onDayPress.bind(this);
     }
 
-
   formatDate() {
     console.log('27--formatDate called');
     if (this.props.FollowUp_Call_Date){
@@ -30,11 +29,6 @@ class CalendarScreen extends Component {
     }
 
     return '';
-  }
-
-  handleCalendarSave = (props) => {
-    console.log('36--handleCalendarSave  - props=', props); 
-      // props.navigation.navigate('CalendarScreen', props.route.params.item.id );
   }
 
 onSave = async (data) => {

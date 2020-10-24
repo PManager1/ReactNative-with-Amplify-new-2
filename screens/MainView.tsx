@@ -104,8 +104,8 @@ const DATA = [
   },
   {
     id: '5869234a0f-3d5a1-475431f-bd96-145571e29d72',
-    title: 'Follow up ',
-    linkscreen: 'CreateRecord',
+    title: 'Dialog Screen',
+    linkscreen: 'DialogScreen',
   },
   {
     id: '5869234a0f-3234d90a1-475431f-bd96-145571e29d72',
