@@ -101,7 +101,22 @@ query ListRecords{
   }
 }
 
+priorities count - Just use the result data.items [] will give the number of items. 
 
+query ListRecords{
+  listRecords (filter: {
+    priorities: {
+      contains: "abc"
+    }
+  }) {
+    items {
+      id
+      companyName
+      priorities
+    }
+    nextToken
+  }
+}
 
 
 query ListRecords($filter: ModelRecordFilterInput, $limit: Int, $nextToken: String) {
