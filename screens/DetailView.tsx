@@ -1,7 +1,5 @@
 import React, { useState, Component } from 'react';
-import { ListItem, 
-  // Icon, 
-  Avatar } from 'react-native-elements'
+import { ListItem, Avatar } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { View, Text, SafeAreaView, KeyboardAvoidingView,  ScrollView, StyleSheet } from 'react-native'
 import { Card, CardSection, Input } from '../components/common';
@@ -32,43 +30,44 @@ const onPhonePress = (p) =>{
 }
 
 
-const onCalendarPress = (p) =>{
-  Communications.phonecall(p, true);
-}
+  const onCalendarPress = (p) =>{
+    Communications.phonecall(p, true);
+  }
 
-const handleDelete = () =>{
-  console.log(' handleDelete called'); 
-}
+  const handleDelete = () =>{
+    console.log(' handleDelete called'); 
+  }
 
-const onDelete = (data) =>{
-  console.log(' delete called'); 
-}
+  const onDelete = (data) =>{
+    console.log(' delete called'); 
+  }
 
 const onSubmit = async (data) => {
-console.log(data);
-const input = {
-                id: props.route.params.item.id,
-                companyName: data.companyName,
-                executiveFirstName: data.executiveFirstName,
-                executiveLastName: data.executiveLastName,
-                contactPerson: data.contactPerson,
-                followupDate: data.followupDate,
-                comment: data.comment,
-                email: data.email,
-                status: data.status,
-                priorities: data.priorities,
-                phone_no: data.phone_no,
-                address: data.address,
-                cell_phone: data.cell_phone,
-                city: data.city,
-                state: data.state,
-                ownerStatus: data.ownerStatus,
-                Linkedin: data.Linkedin,
-                business_size: data.business_size,
-                // lastUpdated: new Date().toISOString()
-}
-console.log(input);
-await API.graphql(graphqlOperation(updateRecord, { input }))
+      console.log(data);
+
+      const input = {
+                      id: props.route.params.item.id,
+                      companyName: data.companyName,
+                      executiveFirstName: data.executiveFirstName,
+                      executiveLastName: data.executiveLastName,
+                      contactPerson: data.contactPerson,
+                      followupDate: data.followupDate,
+                      comment: data.comment,
+                      email: data.email,
+                      status: data.status,
+                      priorities: data.priorities,
+                      phone_no: data.phone_no,
+                      address: data.address,
+                      cell_phone: data.cell_phone,
+                      city: data.city,
+                      state: data.state,
+                      ownerStatus: data.ownerStatus,
+                      Linkedin: data.Linkedin,
+                      business_size: data.business_size,
+                      // lastUpdated: new Date().toISOString()
+                    }
+        console.log(input);
+        await API.graphql(graphqlOperation(updateRecord, { input }))
 }
 
 return (
@@ -240,7 +239,7 @@ return (
             </View>
       </Col>            
       <Col sm={1} md={1} lg={1}>
-            <Icon name="calendar"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('CalendarScreen') }  />
+            <Icon name="calendar"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('CalendarScreen',   123   ) }  />
 
       </Col>           
         </Row>                 

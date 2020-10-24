@@ -10,6 +10,9 @@ import { Card, Input, CardSection, Button, Confirm } from '../components/common'
 import moment from 'moment';
 import { Calendar } from 'react-native-calendars';
 
+import { API, graphqlOperation, Auth } from 'aws-amplify'
+import { updateRecord } from '../src/graphql/mutations'
+
 class CalendarScreen extends Component {
 
   constructor(props) {
