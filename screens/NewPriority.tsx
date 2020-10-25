@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { FlatList, View, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { listRecords } from '../src/graphql/queries'
+import { ListFRecords , listSelectedPriorityRecords} from '../src/graphql/queries'
 import { API, graphqlOperation } from 'aws-amplify'
 import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../src/graphql/subscriptions'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
 
 
-class AllRecords extends React.Component {
+class NewPriority extends React.Component {
 
   constructor(props) {
     super(props);
@@ -32,7 +32,7 @@ class AllRecords extends React.Component {
 
   
   getPosts = async () => {
-    const result = await API.graphql (graphqlOperation(listRecords))
+    const result = await API.graphql (graphqlOperation(listSelectedPriorityRecords))
     console.log(' 32- result = ', result ); 
     this.setState ({ posts: result.data.listRecords.items})
 
@@ -96,8 +96,12 @@ class AllRecords extends React.Component {
 
     const Item = ({ item, onPress, style }) => (
       <TouchableOpacity onPress={onPress} style={[styles.item, style]}>
-        <Text style={styles.title}>{item.companyName}</Text>
-        <Text style={styles.exname}>{item.executiveFirstName}</Text>
+        <View style={styles.listItem}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.title}>{item.companyName}</Text>
+            <Text style={styles.subtitle}>{item.executiveFirstName}</Text>
+          </View>
+        </View>
       </TouchableOpacity>
     );
 
@@ -131,23 +135,45 @@ class AllRecords extends React.Component {
   }
 }
 
-export default AllRecords
+export default NewPriority
 
-// export default withNavigation(AllRecords);
+// export default withNavigation(NewPriority);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: StatusBar.currentHeight || 0,
+    backgroundColor: '#F5F5F5',
   },
   item: {
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    backgroundColor: '#f9c2ff'
+    // padding: 20,
+    // marginVertical: 8,
+    // marginHorizontal: 16,
+    // backgroundColor: '#f9c2ff'
+  },
+  listItem: {
+    flex: 1,
+    height: 75,
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderBottomColor: '#d6d7da',
+    padding: 6,
+  },
+  imageWrapper: {
+    padding: 5,
   },
   title: {
-    fontSize: 32,
+    fontSize: 20,
+    textAlign: 'left',
+    margin: 6,
+    marginLeft: 77,
+  },
+  subtitle: {
+    fontSize: 12,
+    textAlign: 'left',
+    margin: 6,
+    // marginTop: 30,
+    marginLeft: 80,
   },
   exname: {
     fontSize: 16,

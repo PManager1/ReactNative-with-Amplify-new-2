@@ -32,6 +32,7 @@ export const getRecord = /* GraphQL */ `
     }
   }
 `;
+
 export const listRecords = /* GraphQL */ `
   query ListRecords(
     $filter: ModelRecordFilterInput
@@ -39,6 +40,66 @@ export const listRecords = /* GraphQL */ `
     $nextToken: String
   ) {
     listRecords(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        companyName
+        business_size
+        createdAt
+        lastUpdated
+        executiveFirstName
+        executiveLastName
+        contactPerson
+        followupDate
+        comment
+        email
+        priorities
+        status
+        phone_no
+        cell_phone
+        address
+        city
+        state
+        last_date_call_was_made
+        no_of_calls_made
+        ownerStatus
+        OwnerId
+        OwnerUsername
+        base
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+
+
+export const listSelectedPriorityRecords = /* GraphQL */ `
+  query ListRecords{
+  listRecords (filter: {
+    priorities: {
+      contains: "abc"
+    }
+  }) {
+    items {
+      id
+      companyName
+      priorities
+    }
+    nextToken
+  }
+}
+`;
+
+
+
+
+export const listFRecords = /* GraphQL */ `
+  query ListFRecords(
+    $filter: ModelRecordFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listFRecords(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
         companyName
