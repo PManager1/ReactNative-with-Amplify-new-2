@@ -83,7 +83,29 @@ export const listSelectedPriorityRecords = /* GraphQL */ `
     items {
       id
       companyName
+      business_size
+      createdAt
+      lastUpdated
+      executiveFirstName
+      executiveLastName
+      contactPerson
+      followupDate
+      comment
+      email
       priorities
+      status
+      phone_no
+      cell_phone
+      address
+      city
+      state
+      last_date_call_was_made
+      no_of_calls_made
+      ownerStatus
+      OwnerId
+      OwnerUsername
+      base
+      updatedAt
     }
     nextToken
   }

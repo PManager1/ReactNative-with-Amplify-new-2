@@ -13,9 +13,9 @@ import CustomMultiPicker from "react-native-multiple-select-list";
 
 import { Card, Input, CardSection, Button, Confirm } from '../components/common';
 
+// import Icon from 'react-native-vector-icons/Ionicons';
 
-import Icon from 'react-native-vector-icons/Ionicons';
-
+import Icon from 'react-native-vector-icons/EvilIcons';
 
 
 class MultiSelector extends Component {
@@ -45,6 +45,10 @@ class MultiSelector extends Component {
     // } else {
     //   this._onSelect(selected)
     // }
+  }
+
+  componentWillUnmount() {
+   console.log(' componentWillUnmount  called');
   }
 
   static navigationOptions = ({ navigation }) => ({

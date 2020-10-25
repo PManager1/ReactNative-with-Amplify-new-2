@@ -33,7 +33,7 @@ const DATA = [
   },
   {
     id: '5869487a0f-3da1-4731f-bd96-145571e29d72',
-    title: 'NewPriority/HighPriority',
+    title: 'NewPriority/ HighPriority',
     linkscreen: 'NewPriority'
   },
   {

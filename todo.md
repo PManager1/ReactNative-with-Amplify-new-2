@@ -121,3 +121,6 @@ Priorities Array types -
 https://graphql-ruby.org/type_definitions/lists.html
 
 
+when component unmount : 
+https://dev.to/robmarshall/how-to-use-componentwillunmount-with-functional-components-in-react-2a5g
+

@@ -176,7 +176,7 @@ return (
 
 
 
-      <Text style={styles.textStyle}> Status T </Text>
+      <Text style={styles.textStyle}> Status</Text>
       <CardSection>   
       <Row size={12}>
       <Col sm={11} md={9} lg={11} >
