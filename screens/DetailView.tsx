@@ -259,25 +259,7 @@ return (
       </CardSection> 
 
 
-
       <Text style={styles.textStyle}> Comment </Text>
-      <CardSection>        
-      <View style={styles.viewContainerStyle}>
-        <Controller control={control} render={({ onChange, onBlur, value })=> (
-          <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
-            value={value}
-            />
-            )}
-            name="comment"
-            // rules={{ required: true }}
-            defaultValue={props.route.params.item.comment}
-            />
-            </View>
-      </CardSection> 
-
-
-
-      <Text style={styles.textStyle}> Comment CommentScreen</Text>
       <CardSection>   
       <Row size={12}>
       <Col sm={11} md={9} lg={11} >

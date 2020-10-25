@@ -132,5 +132,20 @@ query ListRecords($filter: ModelRecordFilterInput, $limit: Int, $nextToken: Stri
   }
 }
 
+#create record with priorties:
+
+mutation create{
+  createRecord(input :{
+    companyName: "the company-Oct24-2"
+    comment:"the comment"
+    priorities: "abc"
+  }){
+    id
+    companyName
+    priorities
+  }
+}
+
+#Update record with priorties:
 
 

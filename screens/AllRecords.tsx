@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FlatList, View, SafeAreaView, StatusBar, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { listRecords } from '../src/graphql/queries'
+import { ListFRecords , listRecords} from '../src/graphql/queries'
 import { API, graphqlOperation } from 'aws-amplify'
 import { onCreateRecord, onDeleteRecord, onUpdateRecord } from '../src/graphql/subscriptions'
 import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
