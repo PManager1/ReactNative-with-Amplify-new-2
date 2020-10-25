@@ -21,8 +21,6 @@ import ModalDemo from '../screens/ModalDemo';
 
 import CommentScreen from '../screens/CommentScreen';
 import DialogScreen from '../screens/DialogScreen';
-
-
 // // import CalendarEvent from '../screens/CalendarEvent';
 // import RecordsMainView from '../screens/RecordsMainView';
 // import LeftAllRecords from '../screens/LeftAllRecords';
@@ -34,7 +32,7 @@ import MultiSelector from '../screens/MultiSelector';
 // import DateTimePicker from '../screens/DateTimePicker';
 import ShowModal from '../screens/ShowModal';
 import Flattlist from '../screens/Flattlist';
-
+import NewPriority from '../screens/NewPriority';
 
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
@@ -96,7 +94,8 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="ModalDemo" component={ModalDemo} />
       <TabOneStack.Screen name="CommentScreen" component={CommentScreen} />
       <TabOneStack.Screen name="Flattlist" component={Flattlist} />
-
+      <TabOneStack.Screen name="NewPriority" component={NewPriority} />
+      
       
     </TabOneStack.Navigator>
   );

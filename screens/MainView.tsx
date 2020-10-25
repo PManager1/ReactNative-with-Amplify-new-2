@@ -32,6 +32,11 @@ const DATA = [
     linkscreen: 'AllRecords',
   },
   {
+    id: '5869487a0f-3da1-4731f-bd96-145571e29d72',
+    title: 'NewPriority/HighPriority',
+    linkscreen: 'NewPriority'
+  },
+  {
     id: '58694a0f-3da1-4731f-bd96-145571e29d72',
     title: 'Flatlist',
     linkscreen: 'Flattlist'
@@ -102,11 +107,6 @@ const DATA = [
     title: 'Model Demo',
     linkscreen: 'ModalDemo',
   },
-  // {
-  //   id: '5869234a0f-3d5a1-475431f-bd96-145571e29d72',
-  //   title: 'Dialog Screen',
-  //   linkscreen: 'DialogScreen',
-  // },
   {
     id: '5869234a0f-3234d90a1-475431f-bd96-145571e29d72',
     title: 'Call Back',
