@@ -131,7 +131,7 @@ class MultiSelector extends Component {
         <CustomMultiPicker
       options={userList}
       search={true} // should show search bar?
-      multiple={false} //
+      multiple={true} //
       placeholder={"Search-2"}
       placeholderTextColor={'#757575'}
       returnValue={"label"} // label or value

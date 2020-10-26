@@ -25,7 +25,7 @@ class MultiSelector extends Component {
       pageHeight: Dimensions.get('window').height,
       searchText: null,
       selected: [1,2],
-      theValue: [],
+    //   theAbc: '',
     };
   }
 
@@ -71,55 +71,27 @@ class MultiSelector extends Component {
         "p15":"Counter_P",
         "p16":"Wrong_NO_P"
 }
-    const matchlist = [
-          "Red_Priority_P",
-          "Homework_Needed_P",
-          "RedPriority",
-          "Distressed_RequireWork_P",
-          "Research_Needed_P",
-          "Continue_P",
-          "Send_Contract_P",
-          "Later_P",
-          "No_Updated_P",
-          "Later_Today_P",
-          "Left_VM_P",
-          "Motivated_Seller_P",
-          "Bi_Weekly_P",
-          "Polite_P",
-          "Awesome_Person_P",
-          "Negotiation_Willing_P",
-          "Counter_P",
-          "Wrong_NO_P"
-          ];
-
-
+   
       // const { params } = this.props.navigation.state;
-      console.log('23- MultiSelector  =', this.props );
+      console.log('76- SingleSelector  =', this.props );
       return (
         <ScrollView>
 
     <Button title="Submit" onPress={() =>  { 
           
-          console.log('103- Multi page - submit props =', this.props );
-          console.log('104- Multi page - this.state =', this.state );
+          console.log('82- Multi page - submit props =', this.props );
+          console.log('83- Multi page - this.state =', this.state );
 
-          // console.log(' this.state = ', this.state ); 
-      const theitem = {
-        abc: 'abc',
-      }
+     
+    //   this.setState({  theAbc: theitem });
+      console.log('87- Multi page - this.state =', this.state );
+      console.log('88- Multi page - this.state =', this.state.theAbc );
+        let passVal = this.state.theAbc; 
+        let passVal_2 = {passVal}
+        console.log('91- Multi page - passVal=', passVal);
+        console.log('92- Multi page - passVal2=', passVal_2);
 
-      // this.setState({  theAbc: theitem });
-
-      console.log('114- Multi page - this.state =', this.state );
-      console.log('114- Multi page - this.state =', this.state.theAbc );
-      
-          // this.setState({ }); 
-          // this.props.navigation.navigate('DetailView', {theitem})
-          // let grabbedStateVal = this.state[theValue]; 
-          // let grabbedStateVal = this.state.theValue; 
-          // console.log('120---this grabbedState val - ', grabbedStateVal); 
-
-          this.props.navigation.navigate('DetailView',  this.state.theAbc )
+          this.props.navigation.navigate('DetailView', passVal_2 )
           
           // this.setState ({  this.props.navigation.params.item :'the item' });
 
@@ -128,7 +100,7 @@ class MultiSelector extends Component {
 
 
 
-        <CustomMultiPicker
+<CustomMultiPicker
       options={userList}
       search={true} // should show search bar?
       multiple={false} //
@@ -139,16 +111,18 @@ class MultiSelector extends Component {
 
         console.log('86-  onclick =', res); 
       
-        let values = []; 
+        let value; 
         for(let i=0;i<=res.length;i++){
            if (res.indexOf(res[i]) !== -1) {
                console.log(res[i]);
-               values.push(res[i]);
+               value = res[i];
 
               //  this.props.propertyUpdatePriority({ _id: this.props._id, prop: res[i], value: true })
            }
          }
-         this.setState({  theAbc: values });
+         this.setState({  theAbc: value });
+         console.log('120-after setting the value  theAbc: value so this.props=', this.props ); 
+
 
       }} // callback, array of selected items
       rowBackgroundColor={"#eee"}

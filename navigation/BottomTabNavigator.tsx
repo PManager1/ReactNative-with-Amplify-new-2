@@ -29,6 +29,8 @@ import AllRecords from '../screens/AllRecords';
 
 // import LoginScreen from '../screens/LoginScreen';
 import MultiSelector from '../screens/MultiSelector';
+import SingleSelector from '../screens/SingleSelector';
+
 // import DateTimePicker from '../screens/DateTimePicker';
 import ShowModal from '../screens/ShowModal';
 import Flattlist from '../screens/Flattlist';
@@ -90,6 +92,7 @@ function TabOneNavigator() {
       <TabOneStack.Screen name="Charts" component={Charts} />
       <TabOneStack.Screen name="CalendarScreen" component={CalendarScreen} />
       <TabOneStack.Screen name="MultiSelector" component={MultiSelector} />
+      <TabOneStack.Screen name="SingleSelector" component={SingleSelector} />
       <TabOneStack.Screen name="ShowModal" component={ShowModal} />
       <TabOneStack.Screen name="ModalDemo" component={ModalDemo} />
       <TabOneStack.Screen name="CommentScreen" component={CommentScreen} />

@@ -1,4 +1,4 @@
-import React, { useState, Component } from 'react';
+import React, { useState,useEffect, Component } from 'react';
 import { ListItem, Avatar } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { View, Text, SafeAreaView, KeyboardAvoidingView,  ScrollView, StyleSheet } from 'react-native'
@@ -20,12 +20,24 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 
 export default function DetailView(props) {
 
+  useEffect(function(){
+    console.log('Inside the DetailView useEffect function & props', props);
+
+    // let valFromSingleSelector =  props.route.params;  Object.keys(obj)[0]
+    console.log('27-Inside the DetailView valFromSingleSelector  props.route.params=', props.route.params.passVal);
+
+  });
+
+  
+
+
   const { navigation } = props;
   console.log(' 26- props', props);
 
 const { control, handleSubmit, errors } = useForm();
 
 const onPhonePress = (p) =>{
+  console.log(' this.props.navigation.', props);
   Communications.phonecall(p, true);
 }
 
@@ -37,7 +49,6 @@ const onPhonePress = (p) =>{
   const handleDelete = () =>{
     console.log(' handleDelete called'); 
   }
-
   const onDelete = (data) =>{
     console.log(' delete called'); 
   }
@@ -46,6 +57,21 @@ const onPhonePress = (p) =>{
     console.log('46--handleCalendarSelect  - props=', props); 
       props.navigation.navigate('CalendarScreen', props.route.params.item.id );
   }
+
+
+  const componentDidMount = () => {
+    console.log('DetailView - on  -componentDidMount ', props );
+    // const selected = this.props.selected
+    // if(typeof selected === "object"){
+    //   console.log('13-  selected  = ' , selected);
+    //   selected.map(select => {
+    //     this._onSelect(select)
+    //   })
+    // } else {
+    //   this._onSelect(selected)
+    // }
+  }
+
 
   const formatDate = (value) => {
     if (value){
@@ -82,6 +108,8 @@ const onSubmit = async (data) => {
         await API.graphql(graphqlOperation(updateRecord, { input }))
 }
 
+
+
 return (
 <ScrollView>
 <SafeAreaView>
@@ -104,6 +132,36 @@ return (
             />
             </View>
       </CardSection>
+
+
+
+<Text style={styles.textStyle}> Status   &  {props.route.params.passVal}</Text>
+      <CardSection>   
+      <Row size={12}>
+      <Col sm={11} md={9} lg={11} >
+      <View style={styles.viewContainerStyle}>
+        <Controller control={control} render={({ onChange, onBlur, value })=> (
+          <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
+            value={value}
+            />
+            )}
+            name="status"
+            // rules={{ required: true }}
+            // defaultValue={props.route.params.item.status}
+            defaultValue={ props.route.params.item.status }
+
+            />
+            </View>
+      </Col>            
+      <Col sm={1} md={1} lg={1}>
+            <Icon name="shield"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('SingleSelector') }  />
+
+      </Col>           
+        </Row>                 
+      </CardSection> 
+
+
+
 
       <Text style={styles.textStyle}> Exe First Name</Text>
       <CardSection>
@@ -176,30 +234,7 @@ return (
 
 
 
-      <Text style={styles.textStyle}> Status</Text>
-      <CardSection>   
-      <Row size={12}>
-      <Col sm={11} md={9} lg={11} >
-      <View style={styles.viewContainerStyle}>
-        <Controller control={control} render={({ onChange, onBlur, value })=> (
-          <TextInput style={styles.input} onBlur={onBlur} onChangeText={value=> onChange(value)}
-            value={value}
-            />
-            )}
-            name="status"
-            // rules={{ required: true }}
-            defaultValue={props.route.params.item.status}
-            />
-            </View>
-      </Col>            
-      <Col sm={1} md={1} lg={1}>
-            <Icon name="shield"  size={30} color="#FFB6C1"  onPress={() => props.navigation.navigate('MultiSelector') }  />
-
-      </Col>           
-        </Row>                 
-      </CardSection> 
-
-
+    
 
  <Text style={styles.textStyle}> Direct Cell </Text>
       <CardSection>        
@@ -347,7 +382,7 @@ return (
 
     </Card>
 
-    <Button title="Delete-Not workin" onPress={handleDelete(onDelete)} />
+    <Button title="Delete-Not workin" onPress={handleDelete} />
 
   </View>
   </KeyboardAvoidingView>
@@ -380,8 +415,6 @@ const styles = StyleSheet.create({
         // width: width,
         },
         input:{
-        // color: '#000',
-        // color:'#5E90AF',
         color:'#184662',
         backgroundColor: '#FFFFFF',
         paddingRight: 5,
